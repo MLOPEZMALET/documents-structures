@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documents Structurés</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Cours 01
+## 19/09/2019
+
+---
+## Préambule
+Envoyez un mail à `arthur.provenier@.gmail.com` avec comme
+- objet : `[M2 TAL] présentation`
+- corps du message :
+    - prénom NOM
+    - job à côté ? oui / non
+    - M1 à Inalco ? P3 ? P10 ?
+    - Après le master ? plutôt public ou privé ?
+    - languages de programmation connus
+    - langues
+
+---
+## Rappel sur XML
+### Historique
+
+XML est un langage permettant la structuration de documents avec l'aide de balises.
+Il est développé par le W3C qui définit les [spécifications](https://www.w3.org/XML/).
+
+Il est hérité de **S**tandard **G**eneralized **M**arkup **L**anguage (SGML), un standard pour définir les langages à balises.
+HTML est aussi hérité de ce standard.
+
+--
+
+On trouve du XML un peu partout, comme avec [Maven](https://maven.apache.org/) ou bien le format odt.
+
+### Manipulation
+``` bash
+# Ouvrir LibreOffice Writer
+# Écrire "Hello World!" puis enregistrer
+
+unzip nomFichier.odt -d contenu-odt
+
+# Explorer le dossier créé
+```
+
+---
+
+### La structure basique
+
+Un fichier se termine par l'extension `.xml`
+
+#### L'en-tête
+
+```xml
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+```
+
+Permet de définir les caractéristiques du document.
+
+Cet en-tête n'est pas obligatoire, dans ce cas les paramètres par défaut sont `version 1.0 et UTF-8`.
+
+Bien qu'il existe une version 1.1, la très grande majorité des applications se base sur la version 1.0.
+La version 1.1 permet l'utilisation de certains caractères Unicode absents de la version 1.0.
+
+`standalone` (défaut : no), indique si un document peut être compris seul ou nécessite une DTD (par exemple pour les entités, ou une valeur par défaut pour les attributs).
+
+Généralement, on utilise la version "1.0" et l'utf-8 pour faciliter les échanges.
+
+---
+#### Les noeuds _élément_
+
+Ou également, _balise_, _tag_.
+
+⚠️  Le premier élément d'un document xml est appelé la _racine_.
+
+L'élément basique pour la structuration du document.
+
+L'organisation des noeuds (_sibling_, _child_) permet une représentation hiérarchique de l'information.
+
+On peut trouver dans un noeud :
+- un autre élément (ou plusieurs)
+- du texte
+- un mélange d'éléments et de textes
+- rien, un noeud _vide_ (balise auto-fermente `<vide />`)
+
+``` xml
+<racine>
+    <element>
+        <sousElement></sousElement>
+    </element>
+    <element>Du texte</element>
+    <element>Blabla <sousElement></sousElement> blabla </element>
+    <element />
+</racine>
+```
+
+---
+#### Les _attributs_
+
+Utile à la définition d'un élément, fonctionne comme un couple clé/valeur.
+Il s'ajoute dans la balise ouvrante d'un élément. Il peut y en avoir de 0 à _n_.
+
+``` xml
+    <master nom="TAL" specialite="ingenierie multilingue"/>
+```
+
+⚠️  Un nom d'attribut ne peut commencer par _xml_.
+
+⚠️  Deux attributs sont prédéfinis :
+- `xml:space`, pour préserver ou nom les espaces (valeur : `default` ou `preserve`)
+- `xml:lang`, pour spécifier une langue
+
+---
+#### _Attributs_ VS _Elements_
+
+Nous avons vu qu'il est possible de représenter certaines informations en passant soit par une valeur d'élement soit par un attribut.
+```xml
+    <personne nom="Skywalker" prenom="Luke"/>
+    <personne>
+        <nom>Organa</nom>
+        <prenom>Leia</prenom>
+    </personne>
+```
+
+D'après Alexandre Brillant dans _XML Cours et Exercices_, on peut opter pour un attribut dans les cas suivants:
+- un identifiant
+- un numéro
+- un code ou une référence
+- une propriété booléenne
+- un type
+
+Les attributs sont intéressants pour les métadonnées d'un élément.
+
+---
+### Exercice
+
+1. Modélisez votre livre (préféré ?) en vous servant de ce que nous venons de voir.
+2. En binôme, comparez le document créé. Notez les critiques et tenez en compte (ou non).
+
+--
+
+3. Expliquez devant les autres votre choix de modélisation et les améliorations apportées.
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
+
