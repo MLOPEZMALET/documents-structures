@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documents Structurés</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Cours 02
+## 26/09/2019
+
+---
+## Validation d'un document
+
+La validation d'un document XML sert à vérifier que notre document est conforme à une **grammaire**.
+C'est à dire qu'il est contraint par un ensemble de règles garantissant sa cohérence.
+
+Ainsi lorsque les documents proviennent de sources hétérogènes (par exemple, divers services au sein d'une même entreprise),
+on est sûr que les documents auront tous la même structure.
+
+La création automatique ou manuelle peut aussi entraîner des erreurs de saisie.
+La validation permet de contrôler que tout est bien respecté.
+
+Différents types de schémas existent et ne répondent pas tous aux mêmes spécifications.
+Nous verrons
+
+1. DTD
+2. Schema XML
+3. Schema RelaxNg
+4. Schematron (si le temps)
+
+---
+## 1. **D**ocument **T**ype **D**eclaration
+
+Le plus ancien schéma de validation, hérité du SGML.
+
+Lorsque l'on parle de validation, on fait généralement référence à DTD.
+
+Avantages
+- Facile et rapide à écrire
+
+Inconvéniants
+- Pas de typage de données
+- Gestion des espaces de noms
+- Besoin de décrire l'ensemble du document
+
+---
+### 1. DTD - Syntaxe
+
+En partant de `exemple-basique-2.xml`
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<livres>
+    <livre isbn="00000" genre="science-fiction">
+        <auteur nationalite="zho">
+            <prenom>Cixin</prenom>
+            <nomDeFamille>Liu</nomDeFamille>
+        </auteur>
+        <titre>The Three-Body problem</titre>
+    </livre>
+    <livre isbn="00001" genre="tragédie gothique">
+        <auteur nationalite="eng">
+            <prenom>Emily</prenom>
+            <nomDeFamille>Brontë</nomDeFamille>
+        </auteur>
+        <titre>Wuthering Heights</titre>
+    </livre>
+</livres>
+```
+
+---
+### 1. DTD - Appel 
+
+#### DTD externe
+Elle est stockée dans un fichier avec pour extension `.dtd`.
+L'appel dans notre document XML sera
+```xml
+<!DOCTYPE livres SYSTEM "exemple-basique-2.dtd">
+```
+
+####  DTD interne
+Elle se place avant la racine du document.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE livres [
+    ...
+]>
+
+<livres>
+    ...
+</livres>
+```
+
+---
+### 1. DTD - Syntaxe
+
+#### Définition d'un élément
+Un élément est introduit par `ELEMENT` suivis du nom de l'élément que l'on souhaite décrire et de son contenu.
+Le contenu représente les éléments placés sous l'élément décrit.
+
+⚠️  Une balise de la DTD à pour syntaxe `<! >`
+
+```xml
+<!ELEMENT nomElement categorie>
+ou
+<!ELEMENT nomElement (DEFINITION-CONTENU)>
+```
+
+En reprenant notre exemple précédant (sans les attributs)
+```xml
+<!ELEMENT livres (livre+)>
+<!ELEMENT livre (auteur, titre)>
+<!ELEMENT auteur (prenom, nomDeFamille)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT nomDeFamille (#PCDATA)>
+<!ELEMENT titre (#PCDATA)>
+```
+
+---
+### 1. DTD - Syntaxe
+
+La définition du contenu d'un élément peut prendre plusieurs valeurs
+
+- `EMPTY`: les éléments vides comme `<hello />` mais il peut contenir des attributs.
+- `ANY`: n'importe quel élément de la DTD.
+````xml
+<!ELEMENT hello EMPTY>
+<!ELEMENT tout ANY>
+```
+
+---
+
+- `(#PCDATA)` : _Parsable Character Data_, un contenu textuel que le parser peut traiter. ⚠️  Ne pas oublier le \#.
+
+- `(elementNom)` : un élément mis entre parenthèses, qui indique que l'élément décrit aura pour fils celui entre parenthèses. 
+
+- un ensemble d'éléments que ce soit un élément fils et/ou bien un `#PCDATA`.
+    - si l'ensemble est séparé par une virgule `','` alors les éléments sont obligatoires
+        - `(elementNom1, elementNom2)`
+    - si l'ensemble est séparé par un pipe `'|'` alors il s'agit d'un choix
+        - `(elementNom1 | elementNom2)`
+    - un mixte des deux est possible
+        - `(elementNom1, elementNom2 | elementNom3)`
+        - un élément `elementNom1` et un (`elementNom2` ou un `elementNom3`)
+    - Cas particulier, contenu mixte avec un `#PCDATA`
+        - déclaration de la forme `(#PCDATA | elementNom1)*`
+        - ⚠️  `#PCDATA` vient en premier, ne pas oublier `'*'`
+---
+### 1. DTD - Syntaxe
+
+Il est également possible de quantifier les éléments avec les opérateurs suivants
+- `?` : 0 ou 1 fois
+- `*` : 0 à _n_ fois
+- `+` : 1 à _n_ fois
+
+Ils se positionnent dans le contenu à définir, sur l'élément voulu ou bien l'ensemble des éléments.
+```xml
+<!ELEMENT livres (livre+)>
+<!ELEMENT auteur (prenom?, nom)>
+```
+
+---
+### 1. DTD - Syntaxe
+
+#### Définition d'un attribut
+Un attribut est introduit par le mot-clé `ATTLIST`. La déclaration de l'attribut est indépendante de celle de l'élément,
+il faut donc à nouveau préciser le nom de celui-ci. 
+
+````xml
+<!ATTLIST nom-element nom-attribut TYPE OBLIGATION VALEUR-PAR-DEFAUT>
+```
+
+````xml
+<!-- Dans notre exemple -->
+<!ATTLIST livre
+          genre CDATA #REQUIRED
+          isbn CDATA #REQUIRED>
+<!ATTLIST auteur
+          nationalite CDATA #REQUIRED>
+```
+
+---
+### 1. DTD - Syntaxe
+
+Comme pour les éléments, plusieurs critères sont possibles pour qualifier un attribut
+
+- `TYPE`
+    - `CDATA` : du texte (suite quelconque de caractères)
+    - `NMTOKEN` : une chaîne de caractères (chiffres, lettres, `:`, `_`, `-`, `.`) sans espace blanc.
+    - `NMTOKENS` : une liste de mots (séparateur = espace blanc)
+        - `<exemple uitilisateurAutorise="Luke Leia Han"/>`
+    - `ID` : un identifiant unique (mélange de chiffres et de lettres)
+    - `IDREF` : une référence vers un `ID`
+    - `IDREFS` : une liste de références vers des `ID` (séparateur = espace blanc)
+    - une énumération de valeurs, séparée par un `'|'`
+- `OBLIGATION` : définit si l'attribut est requis ou non
+    - `#REQUIRED` : l'attribut est obligatoire
+    - `#IMPLIED` : l'attribut est optionnel
+    - `#FIXED` : on définit la valeur de l'attribut, on force à utiliser la valeur souhaitée
+- `VALEUR-PAR-DEFAUT` : la valeur par défaut
+
+---
+### 1. DTD - Exercice
+
+Reprendre le fichier xml que vous avez décrit au précédant cours.
+1. Écrire la dtd **externe** du document par vous-même.
+2. Vérifier sa validité avec `xmllint`. Si l'output est le document, alors le document est ok.
+
+```bash
+# Vérification de la bonne formation du document
+xmllint nom-xml.xml 
+
+# Vérification de la validité
+xmllint --dtdvalid nom-dtd.dtd nom-xml.xml 
+```
+
+---
+### DTD - Entités
+
+Une entité associe un nom à une valeur. On peut voir ça comme un alias ou un raccourci.
+
+Elle peut servir à la fois au document XML qu'à une DTD, on parle dans ce cas d'`entité paramètrique`.
+
+Une entité peut être définie dans le document, elle sera alors **interne**. Si elle est définie dans un autre document, alors elle sera **externe**.
+
+```xml
+<!-- XML, interne -->
+<!ENTITY nom "valeur">
+
+<!-- XML, externe -->
+<!ENTITY nom SYSTEM "nom-fichier">
+
+
+<!-- DTD, interne -->
+<!ENTITY % nom "valeur">
+
+<!-- DTD, externe -->
+<!ENTITY % nom SYSTEM "nom-fichier">
+```
+
+---
+### DTD - Devoir 01
+
+À rendre jeudi prochain
+1. Se rendre sur [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/tournagesdefilmsparis2011/)
+2. Télécharger le CSV (onglet `Export`)
+3. Transformer le CSV en modélisation XML (libre à vous de choisir laquelle) avec le langage de programmation de votre choix
+4. Écrire la grammaire associée
+4. Uploader le script et la DTD sur votre github, dans un dossier `devoirs/devoir-01`
+
+---
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
+
