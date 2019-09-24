@@ -26,11 +26,11 @@ class: center, middle
 
 ---
 ## Préambule
-Envoyez un mail à `arthur.provenier@.gmail.com` avec comme
+Envoyez un mail à `arthur.provenier@gmail.com` avec comme
 - objet : `[M2 TAL] présentation`
 - corps du message :
     - prénom NOM
-    - job à côté ? oui / non
+    - emploi à côté ?
     - M1 à Inalco ? P3 ? P10 ?
     - Après le master ? plutôt public ou privé ?
     - languages de programmation connus
@@ -84,7 +84,7 @@ La version 1.1 permet l'utilisation de certains caractères Unicode absents de l
 Généralement, on utilise la version "1.0" et l'utf-8 pour faciliter les échanges.
 
 ---
-#### Les noeuds _élément_
+#### L'_élément_
 
 Ou également, _balise_, _tag_.
 
@@ -92,9 +92,25 @@ Ou également, _balise_, _tag_.
 
 L'élément basique pour la structuration du document.
 
-L'organisation des noeuds (_sibling_, _child_) permet une représentation hiérarchique de l'information.
+L'organisation en _sibling_, _child_ permet une représentation hiérarchique de l'information. Deux éléments sont dits _sibling_ s'ils sont côte à côte. Un élément est un enfant (_child_) d'un autre élément s'il est inclut dans celui-ci.
 
-On peut trouver dans un noeud :
+Un élément parent est toujours fermé après la fermeture des éléments fils.
+
+```xml
+<racine>
+    <element></element>
+    <element>
+        <sousElement></sousElement>
+    </element>
+</racine>
+```
+Les deux `<element>` sont des _siblings_.
+
+`<sousElement>` est l'enfant (_child_) de `<element>`.
+
+---
+##### Composition d'un noeud élément
+
 - un autre élément (ou plusieurs)
 - du texte
 - un mélange d'éléments et de textes
@@ -109,6 +125,23 @@ On peut trouver dans un noeud :
     <element>Blabla <sousElement></sousElement> blabla </element>
     <element />
 </racine>
+```
+
+---
+#####Les caractères utilisés
+
+Afin d'écrire le nom d'un élément, il faut suivre les règles suivantes:
+- le nom des éléments est sensible à la casse
+- ils doivent commencer par une lettre ou un `_` (underscore)
+- ils peuvent contenir des lettres, des chiffres, `_`, `-` (tiret), `.` (point).
+- ils ne peuvent pas contenir d'espace
+
+Bien que les caractères accentués soient autorisés, il vaut mieux éviter pour assurer la compatibilité avec les outils comme les parsers, éditeurs, etc.
+
+Séparer les noms composés avec un tiret (`-`) ou une majuscule.
+```xml
+<element-compose />
+<elementCompose />
 ```
 
 ---
