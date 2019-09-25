@@ -85,7 +85,7 @@ En partant de `exemple-basique-2.xml`
 ```
 
 ---
-### 1. DTD - Appel 
+### 1. DTD - Appel
 
 #### DTD externe
 Elle est stockée dans un fichier avec pour extension `.dtd`.
@@ -149,7 +149,7 @@ La définition du contenu d'un élément peut prendre plusieurs valeurs
 
 - `(#PCDATA)` : _Parsable Character Data_, un contenu textuel que le parser peut traiter. ⚠️  Ne pas oublier le \#.
 
-- `(elementNom)` : un élément mis entre parenthèses, qui indique que l'élément décrit aura pour fils celui entre parenthèses. 
+- `(elementNom)` : un élément mis entre parenthèses, qui indique que l'élément décrit aura pour fils celui entre parenthèses.
 
 - un ensemble d'éléments que ce soit un élément fils et/ou bien un `#PCDATA`.
     - si l'ensemble est séparé par une virgule `','` alors les éléments sont obligatoires
@@ -181,7 +181,7 @@ Ils se positionnent dans le contenu à définir, sur l'élément voulu ou bien l
 
 #### Définition d'un attribut
 Un attribut est introduit par le mot-clé `ATTLIST`. La déclaration de l'attribut est indépendante de celle de l'élément,
-il faut donc à nouveau préciser le nom de celui-ci. 
+il faut donc à nouveau préciser le nom de celui-ci.
 
 ````xml
 <!ATTLIST nom-element nom-attribut TYPE OBLIGATION VALEUR-PAR-DEFAUT>
@@ -225,20 +225,21 @@ Reprendre le fichier xml que vous avez décrit au précédant cours.
 
 ```bash
 # Vérification de la bonne formation du document
-xmllint nom-xml.xml 
+xmllint nom-xml.xml
 
 # Vérification de la validité
-xmllint --dtdvalid nom-dtd.dtd nom-xml.xml 
+xmllint --dtdvalid nom-dtd.dtd nom-xml.xml
 ```
 
 ---
 ### DTD - Entités
 
-Une entité associe un nom à une valeur. On peut voir ça comme un alias ou un raccourci.
-
-Elle peut servir à la fois au document XML qu'à une DTD, on parle dans ce cas d'`entité paramètrique`.
-
-Une entité peut être définie dans le document, elle sera alors **interne**. Si elle est définie dans un autre document, alors elle sera **externe**.
+- Une entité associe un nom à une valeur
+- Sorte d'alias ou raccourci
+- Une entité peut être
+    - **interne** au document
+    - **externe** au document (déclarée dans un fichier)
+- S'emploie dans un XML
 
 ```xml
 <!-- XML, interne -->
@@ -246,14 +247,54 @@ Une entité peut être définie dans le document, elle sera alors **interne**. S
 
 <!-- XML, externe -->
 <!ENTITY nom SYSTEM "nom-fichier">
+```
 
+- et/ou dans une DTD, on parle d'`entité paramètrique`.
 
+```xml
 <!-- DTD, interne -->
 <!ENTITY % nom "valeur">
 
 <!-- DTD, externe -->
 <!ENTITY % nom SYSTEM "nom-fichier">
 ```
+- ⚠️  Noter l'ajout du `'%'`
+
+---
+### DTD - Entités
+
+```xml
+<!ENTITY % livre_prefere "Buddenbrooks">
+<!ATTLIST livre
+favorite %livre_prefere; #REQUIRED>
+```
+
+- Définition d'une entité paramétrique `livre_prefere` qui a pour valeur `Buddenbrooks`
+- Cette valeur est utilisée pour qualifier l'attribut `favorite` de `<livre>`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cursus [
+<!ENTITY intitule "Document Structuré">
+<!ELEMENT cursus (cours)>
+<!ELEMENT cours (#PCDATA)>
+]>
+<cursus>
+    <cours>&intitule;</cours>
+</cursus>
+```
+
+- Définition d'une entité `intitule` ayant pour valeur `Document Structuré`
+- Employée pour le noeud texte de `<cours>`
+
+---
+### DTD - Entités
+
+#### Exercice
+1. Dans le moteur de recherche de votre navigateur préféré tapez : fnac baladeur mp3
+2. Modélisez un document XML ainsi que sa dtd SYSTEM interne à partir des informations présentes. Ce document représentera au moins 5 des baladeurs présents sur la page “afficher tout” avec le maximum de marques différentes
+3. Attention : l’intérêt de l’exercice réside dans l’utilisation de la notion d'entités...
+4. Consigne supplémentaire : chaque baladeur possédera un attribut "id" et un élément "marque" qui seront renseignés
 
 ---
 ### DTD - Devoir 01
@@ -273,5 +314,3 @@ Une entité peut être définie dans le document, elle sera alors **interne**. S
     </script>
   </body>
 </html>
-
-
