@@ -40,81 +40,127 @@ Envoyez un mail à `arthur.provenier@gmail.com` avec comme
 ## Rappel sur XML
 ### Historique
 
-XML est un langage permettant la structuration de documents avec l'aide de balises.
-Il est développé par le W3C qui définit les [spécifications](https://www.w3.org/XML/).
+Permettre la structuration de documents avec l'aide de balises.
 
-Il est hérité de **S**tandard **G**eneralized **M**arkup **L**anguage (SGML), un standard pour définir les langages à balises.
+Relier des informations structurées sous forme d'arbres.
+
+Développé par le W3C qui définit les [spécifications](https://www.w3.org/XML/).
+
+Hérité de **S**tandard **G**eneralized **M**arkup **L**anguage (SGML), un standard pour définir les langages à balises.
 HTML est aussi hérité de ce standard.
 
---
-
+---
+### Manipulation
 On trouve du XML un peu partout, comme avec [Maven](https://maven.apache.org/) ou bien le format odt.
 
-### Manipulation
 ``` bash
 # Ouvrir LibreOffice Writer
 # Écrire "Hello World!" puis enregistrer
 
+# -d spécifie un dossier pour dézipper le contenu
 unzip nomFichier.odt -d contenu-odt
 
 # Explorer le dossier créé
 ```
 
----
+--
 
+Nos données sont encodées en xml !
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    office:version="1.2">
+    <!--...-->
+    <office:body>
+        <office:text>
+            <text:p text:style-name="Standard">Hello world !</text:p>
+        </office:text>
+    </office:body>
+</office:document-content>
+```
+
+---
 ### La structure basique
 
-Un fichier se termine par l'extension `.xml`
+- Extension en .xml (voir le fichier `exemple-basique-2.xml`)
+- Composé de noeuds (_éléments_, _attributs_, _commentaires_, _texte_) contenant des données
+- [Différence _noeuds_ et _éléments_](https://stackoverflow.com/a/297810) ?
+> _An element is a type of node. Many other types of nodes exist and serve different purposes._
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<livres>
+    <livre isbn="00000" genre="science-fiction">
+        <auteur nationalite="zho">
+            <prenom>Cixin</prenom>
+            <nomDeFamille>Liu</nomDeFamille>
+        </auteur>
+        <titre>The Three-Body problem</titre>
+    </livre>
+    <livre isbn="00001" genre="tragédie gothique">
+        <auteur nationalite="eng">
+            <prenom>Emily</prenom>
+            <nomDeFamille>Brontë</nomDeFamille>
+        </auteur>
+        <titre>Wuthering Heights</titre>
+    </livre>
+</livres>
+```
+
+---
 #### L'en-tête
 
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 ```
 
-Permet de définir les caractéristiques du document.
+- Aussi appeler le **prologue**, permet de définir les caractéristiques du document.
 
-Cet en-tête n'est pas obligatoire, dans ce cas les paramètres par défaut sont `version 1.0 et UTF-8`.
+- Non obligatoire, par défaut `version="1.0"` et `encoding="utf-8"`.
 
-Bien qu'il existe une version 1.1, la très grande majorité des applications se base sur la version 1.0.
-La version 1.1 permet l'utilisation de certains caractères Unicode absents de la version 1.0.
+- `version 1.0` ou `version 1.1` ?
+    - La `version 1.1` permet l'utilisation de certains caractères Unicode
+    - Notamment les smileys dans les balises
+    - Dans 99,999% des cas, la `version 1.0` répond à nos besoins
 
-`standalone` (défaut : no), indique si un document peut être compris seul ou nécessite une DTD (par exemple pour les entités, ou une valeur par défaut pour les attributs).
+- `encoding` sert à spécifier un autre encodage.
+    - Autres valeurs possibles : `utf-16`, `utf-32`, `ISO-8859-*`
+    - Toujours bien de le spécifier explicitement
 
-Généralement, on utilise la version "1.0" et l'utf-8 pour faciliter les échanges.
+- `standalone` (défaut : no), indique si un document peut être compris seul ou nécessite une DTD
+    - Par exemple pour les entités, ou une valeur par défaut pour les attributs
 
 ---
 #### L'_élément_
 
-Ou également, _balise_, _tag_.
+- ⚠️  Le premier élément d'un document xml est appelé la **racine** et est **unique**.
 
-⚠️  Le premier élément d'un document xml est appelé la _racine_.
+- Balise la plus courante pour la structuration du document.
 
-L'élément basique pour la structuration du document.
-
-L'organisation en _sibling_, _child_ permet une représentation hiérarchique de l'information. Deux éléments sont dits _sibling_ s'ils sont côte à côte. Un élément est un enfant (_child_) d'un autre élément s'il est inclut dans celui-ci.
-
-Un élément parent est toujours fermé après la fermeture des éléments fils.
+- Organisation à deux niveaux
+    - au même niveau, côte à côte, `élément frère` (`<element1>` et `<element2>`)
+    - imbriqué, un sous-élément inclus, `élément fils` (`<element2>` et `<sousElement>`)
 
 ```xml
 <racine>
-    <element></element>
-    <element>
+    <element1></element1>
+    <element2>
         <sousElement></sousElement>
-    </element>
+    </element2>
 </racine>
 ```
-Les deux `<element>` sont des _siblings_.
 
-`<sousElement>` est l'enfant (_child_) de `<element>`.
+- Un élément parent est toujours fermé après la fermeture des éléments fils.
 
 ---
-##### Composition d'un noeud élément
+##### Composition d'un noeud _élément_
 
 - un autre élément (ou plusieurs)
 - du texte
 - un mélange d'éléments et de textes
-- rien, un noeud _vide_ (balise auto-fermente `<vide />`)
+- rien, un élément _vide_ (balise auto-fermente `<vide />`)
 
 ``` xml
 <racine>
@@ -131,7 +177,7 @@ Les deux `<element>` sont des _siblings_.
 #####Les caractères utilisés
 
 Afin d'écrire le nom d'un élément, il faut suivre les règles suivantes:
-- le nom des éléments est sensible à la casse
+- sensible à la casse
 - ils doivent commencer par une lettre ou un `_` (underscore)
 - ils peuvent contenir des lettres, des chiffres, `_`, `-` (tiret), `.` (point).
 - ils ne peuvent pas contenir d'espace
@@ -147,8 +193,12 @@ Séparer les noms composés avec un tiret (`-`) ou une majuscule.
 ---
 #### Les _attributs_
 
-Utile à la définition d'un élément, fonctionne comme un couple clé/valeur.
-Il s'ajoute dans la balise ouvrante d'un élément. Il peut y en avoir de 0 à _n_.
+- Précise un élément
+- Couple clé/valeur
+- Se déclare dans la balise ouvrante d'un élément
+- Il peut y en avoir de 0 à _n_
+- ⚠️  pas d'attribut en double (portant le même nom) dans un élément
+- L'ordre n'a pas d'importance
 
 ``` xml
     <master nom="TAL" specialite="ingenierie multilingue"/>
@@ -163,7 +213,7 @@ Il s'ajoute dans la balise ouvrante d'un élément. Il peut y en avoir de 0 à _
 ---
 #### _Attributs_ VS _Elements_
 
-Nous avons vu qu'il est possible de représenter certaines informations en passant soit par une valeur d'élement soit par un attribut.
+Nous avons vu qu'il est possible de représenter certaines informations en passant soit par une valeur d'élément soit par un attribut.
 ```xml
     <personne nom="Skywalker" prenom="Luke"/>
     <personne>
@@ -179,7 +229,114 @@ D'après Alexandre Brillant dans _XML Cours et Exercices_, on peut opter pour un
 - une propriété booléenne
 - un type
 
-Les attributs sont intéressants pour les métadonnées d'un élément.
+Les attributs sont intéressants pour les métadonnées d'un élément, pour le qualifier.
+
+---
+### Autres balises
+
+#### Les commentaires
+- Ignorés par les parsers
+- Renseignent les personnes lisant le document
+- ⚠️  Ne peut contenir la chaîne `--`
+```xml
+<!-- commentaire -->
+```
+
+#### Instructions de traitement 
+- Pour les applications traitant le document
+- Ne porte pas d'informations sur les données
+- Exemple : le prologue du document xml
+```xml
+<?cible argument-1 argument-2 ... ?>
+```
+
+---
+### Document bien formé et valide
+
+Un document XML est dit
+- `bien formé` : si les règles de construction sont respectées
+- `valide` : s'il est validé par une grammaire
+
+On peut avoir comme cas possibles
+- un document mal formé
+- un document bien formé
+- un document valide
+- un document valide mais mal formé
+
+⚠️  Un document doit être **bien formé** pour être traité par une application
+
+---
+### Espaces de nom
+
+Les deux éléments suivants sont-ils les mêmes sémantiquement ?
+```xml
+<content />
+<content />
+```
+
+--
+
+- `content` peut désigner
+    - l'adjectif français d'émotion
+    - le nom anglais pour le contenu
+
+- L'espace de nom sert à lever cette ambiguité
+- Utile pour ne pas interférer avec des éléments d'autres documents ayant la même orthographe
+    - évite les conflits !
+
+---
+### Espaces de nom
+
+- La déclaration se fait dans un élément `xmlns:préfixe="URI"`
+    - `xmlns` (xml namespace)
+    - `:préfixe`
+    - `une URI` (Unique Ressource Identifier)
+
+- Une URI pointe sur une ressource unique à l'inverse d'une URL (Uniform Resource Locator)
+- Souvent une URI pointe sur une URL, néanmoins il faut distinguer la chaîne de caractères URL du contenu derrière elle
+
+[Plus d'informations](https://stackoverflow.com/questions/18974378/what-does-namespace-uri-exactly-means)
+
+```xml
+<l:livres xmlns:l="URI:mon-espace-de-nom">
+    <l:livre isbn="00000" genre="science-fiction">
+        <l:auteur nationalite="zho">
+            <l:prenom>Cixin</l:prenom>
+            <l:nomDeFamille>Liu</l:nomDeFamille>
+        </l:auteur>
+        <l:titre>The Three-Body problem</l:titre>
+    </l:livre>
+</l:livres>
+```
+
+---
+### Espaces de nom
+
+- Sans préfixe spécifié, l'espace de nom s'applique à l'élément et à ses enfants
+- ⚠️  L'espace de nom par défaut est alors une chaîne de caractères vides `""`
+```xml
+<livres xmlns="URI:mon-espace-de-nom">
+```
+
+```xml
+<livres xmlns="http://exemple.org/ns/books"
+    xmlns:l="http://exemple.org/ns/livres">
+    <livre isbn="00000" genre="science-fiction">
+        <aut:auteur xmlns:aut="http://exemple.org/ns/auteurs" nationalite="zho">
+            <aut:nomDeFamille>Liu</aut:nomDeFamille>
+        </aut:auteur>
+        <titre>The Three-Body problem</titre>
+    </livre>
+    <l:livre isbn="00001" genre="tragédie gothique">
+        <l:auteur nationalite="eng">
+            <l:nomDeFamille>Brontë</l:nomDeFamille>
+        </l:auteur>
+        <l:titre>Wuthering Heights</l:titre>
+    </l:livre>
+</livres>
+```
+- `<livre>` est différent de `<l:livre>`
+- Un autre espace de nom est redéfini dans `<auteur>`
 
 ---
 ### Exercice

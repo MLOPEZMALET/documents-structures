@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<livres xmlns="http://exemple.org/ns/books"
+    xmlns:l="http://exemple.org/ns/livres">
+    <livre isbn="00000" genre="science-fiction">
+        <aut:auteur xmlns:aut="http://exemple.org/ns/auteurs" nationalite="zho">
+            <aut:prenom>Cixin</aut:prenom>
+            <aut:nomDeFamille>Liu</aut:nomDeFamille>
+        </aut:auteur>
+        <titre>The Three-Body problem</titre>
+    </livre>
+
+    <l:livre isbn="00001" genre="tragédie gothique">
+        <l:auteur nationalite="eng">
+            <l:prenom>Emily</l:prenom>
+            <l:nomDeFamille>Brontë</l:nomDeFamille>
+        </l:auteur>
+        <l:titre>Wuthering Heights</l:titre>
+    </l:livre>
+</livres>
