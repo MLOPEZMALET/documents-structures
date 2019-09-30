@@ -4,7 +4,7 @@
 Explication de [git](https://git-scm.com/book/en/v1/) en ligne.
 
 ### Initialisation pour le fork
-```
+``` bash
 # Appuyer sur le bouton fork depuis https://github.com/ruthrapr/documents-structures
 # Dans un terminal
 git clone https://github.com/VOTRE-NOM-UTILISATEUR/documents-structures
@@ -12,7 +12,7 @@ git clone https://github.com/VOTRE-NOM-UTILISATEUR/documents-structures
 git remote add upstream https://github.com/ruthrapr/documents-structures
 ```
 
-### Pour récupérer les update
+### Pour récupérer les update
 ```bash
 # Depuis votre dossier en local
 git fetch upstream
