@@ -11,7 +11,8 @@ git clone https://github.com/VOTRE-NOM-UTILISATEUR/documents-structures
 
 git remote add upstream https://github.com/ruthrapr/documents-structures
 ```
-### Pour récupérer les __update__ depuis mon github
+
+### Pour récupérer les update
 ```bash
 # Depuis votre dossier en local
 git fetch upstream
