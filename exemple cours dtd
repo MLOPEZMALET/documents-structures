@@ -1,0 +1,14 @@
+--> titre puis entre parenthèses son contenu
+-->mot clé att list : liste d'attributs
+--> cdata = texte
+-->pcdata = n'immporte quelle nature de données
+
+<TEI xml:lang=" "
+  <teiHeader>
+    <fileDesc>
+      <publicationStmt>
+        <publisher>
+        <date>
+        <idno>
+        <availability>
+      <titleStmt>
