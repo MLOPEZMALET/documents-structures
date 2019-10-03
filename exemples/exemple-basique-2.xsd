@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="livres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="livre"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="livre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="auteur"/>
+        <xs:element ref="titre"/>
+      </xs:sequence>
+      <xs:attribute name="genre" use="required"/>
+      <xs:attribute name="isbn" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="auteur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="prenom"/>
+        <xs:element ref="nomDeFamille"/>
+      </xs:sequence>
+      <xs:attribute name="nationalite" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prenom" type="xs:NCName"/>
+  <xs:element name="nomDeFamille" type="xs:NCName"/>
+  <xs:element name="titre" type="xs:string"/>
+</xs:schema>
