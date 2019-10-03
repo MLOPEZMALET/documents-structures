@@ -3,6 +3,24 @@
 
 Explication de [git](https://git-scm.com/book/en/v1/) en ligne.
 
+### Initialisation pour le fork
+``` bash
+# Appuyer sur le bouton fork depuis https://github.com/ruthrapr/documents-structures
+# Dans un terminal
+git clone https://github.com/VOTRE-NOM-UTILISATEUR/documents-structures
+
+git remote add upstream https://github.com/ruthrapr/documents-structures
+```
+
+### Pour récupérer les update
+```bash
+# Depuis votre dossier en local
+git fetch upstream
+git checkout master
+git merge upstream/master
+``` 
+Si tout a fonctionné, les mises à jours devraient être rappatriées.
+
 ### Initialiser un repository git
 ```bash
 # Depuis un dossier local

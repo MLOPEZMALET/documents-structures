@@ -241,7 +241,7 @@ xmllint --dtdvalid nom-dtd.dtd nom-xml.xml
 - Une entité peut être
     - **interne** au document
     - **externe** au document (déclarée dans un fichier)
-- S'emploie dans un XML
+- S'emploie dans un XML pour remplacer un contenu
 
 ```xml
 <!-- XML, interne -->
@@ -251,7 +251,7 @@ xmllint --dtdvalid nom-dtd.dtd nom-xml.xml
 <!ENTITY nom SYSTEM "nom-fichier">
 ```
 
-- et/ou dans une DTD, on parle d'`entité paramètrique`.
+- et/ou dans une DTD, on parle d'`entité paramètrique` pour remplacer un élément de la DTD.
 
 ```xml
 <!-- DTD, interne -->
@@ -261,18 +261,20 @@ xmllint --dtdvalid nom-dtd.dtd nom-xml.xml
 <!ENTITY % nom SYSTEM "nom-fichier">
 ```
 - ⚠️  Noter l'ajout du `'%'`
+- ⚠️  Une DTD interne à un document XML ne peut contenir d'entités paramètriques
 
 ---
 ### DTD - Entités
 
 ```xml
-<!ENTITY % livre_prefere "Buddenbrooks">
-<!ATTLIST livre
-favorite %livre_prefere; #REQUIRED>
+<!ENTITY % STR "#PCDATA">
+
+<!ELEMENT livres (livre)>
+<!ELEMENT livre (%STR;)>
 ```
 
-- Définition d'une entité paramétrique `livre_prefere` qui a pour valeur `Buddenbrooks`
-- Cette valeur est utilisée pour qualifier l'attribut `favorite` de `<livre>`
+- Définition d'une entité paramètrique `STR` qui a pour valeur `#PCDATA`
+- Cette valeur est utilisée pour préciser que `<livre>` contient une chaîne de caractères
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -288,6 +290,7 @@ favorite %livre_prefere; #REQUIRED>
 
 - Définition d'une entité `intitule` ayant pour valeur `Document Structuré`
 - Employée pour le noeud texte de `<cours>`
+- (Pour tester, ouvrir le fichier xml avec votre navigateur)
 
 ---
 ### DTD - Entités

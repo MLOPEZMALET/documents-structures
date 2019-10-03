@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documents Structurés</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Cours 03
+## 03/10/2019
+
+---
+## Schéma
+
+Une autre façon de valider des documents
+
+Plusieurs types de schémas : XML Schéma, RelaxNG, etc.
+
+Syntaxe XML
+
+### Différence avec une DTD
+
+- DTD est utile pour contraindre la structure d'un document
+- Mais celle-ci n'est pas suffisante pour gérer les données (typages, occurrences, etc.)
+    - DTD ne connait que #PCDATA pour décrire son contenu
+    - Le nombre d'occurrences des éléments  n'est pas contrôlable (en dehors de : `?`, `+`, `*`)
+    - Support limité des espaces de nom
+
+---
+## XML Schéma
+
+Standard définit par le [W3C](https://www.w3.org/TR/)
+
+Un schéma est lui-même un document XML. Il est donc bien formé et respectueux d'une grammaire.
+- [DTD](http://www.w3.org/2001/XMLSchema.dtd)
+- [schéma](http://www.w3.org/2001/XMLSchema.xsd)
+
+Définit dans un espace de nommage `xs:` ou `xsd` associé à l'URI [http://www.w3.org/2001/XMLSchema](http://www.w3.org/2001/XMLSchema)
+
+Généralement, un schéma a pour extension de fichier `.xsd`
+
+---
+### Déclaration du schéma
+
+Dans le document XML
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<racine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="Lien vers le schéma">
+    ...
+</racine>
+```
+`xmlns:xsi` permet l'utilisation de l'attribut `xsi:noNamespaceSchemaLocation` pour lier notre document
+
+Dans le XML Schéma
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    ...
+</xs:schema>
+```
+
+---
+### Les types
+
+Deux types permettant de gérer les valeurs possibles des éléments ou attributs, et la description du modèle de contenu.
+
+- __type simple__, les valeurs possibles pour
+    - le contenu textuel d'un élément terminal
+    - un attribut
+- __type complexe__, le modèle de contenu d'un élément
+    - composition des éléments
+    - ses attributs
+
+⚠️  Un élément avec du texte et des attributs sera forcément un **type complexe**.
+
+Voir `types-simples-complexes.png` dans le même dossier
+
+---
+### Principes
+
+
+La définition des `elements`, `attributs`, `types` peut se faire à la fois __localement__ et __globalement__. Dans le cas de la définition globale, on appelera une référence sur l'élément décrit.
+
+- définir un élément requiert de lui attribuer un type
+- définir un attribut requiert de lui attribuer un type
+- définir un type nécessite : 
+    - un type simple : ses valeurs
+    - type complexe : sa structure
+
+---
+### Définition d'un élément
+#### Définition locale
+
+```xml
+<!-- Type déjà défini, par exemple xs:string -->
+<xs:element name="nom-element" type="nom_type" minOccurs="min" maxOccurs="max"/>
+
+<!-- Type non défini -->
+<xs:element name="nom-element" minOccurs="min" maxOccurs="max">
+    <xs:simpleType> ou <xs:complexeType>
+        ...
+    </xs:simpleType> ou </xs:complexeType>
+</xs:element>
+```
+---
+
+#### Définition globale 
+
+```xml
+<!-- Type déjà défini, par exemple xs:string -->
+<xs:element name="nom-element" type="nom_type"/>
+
+<!-- Type non défini -->
+<xs:element name="nom-element">
+    <xs:simpleType> ou <xs:complexeType>
+        ...
+    </xs:simpleType> ou </xs:complexeType>
+</xs:element>
+
+<!-- Référence locale à appeler -->
+<xs:element ref="nom-element" minOccurs="min" maxOccurs="max">
+```
+
+#### Valeurs possibles
+
+- name : nom de l'élément
+- ref : référence au nom d'un élément défini globalement dans le schéma
+- type : référence à un type défini globalement
+- maxOccurs : nombre maximum d'occurrences pour l'élément (1 par défaut, "unbounded")
+- minOccurs : nombre minimum d'occurrences pour l'élément (1 par défaut)
+
+---
+### Définition d'un attribut
+#### Définition locale
+
+```xml
+<!-- Type déjà défini, par exemple xs:string -->
+<xs:attribute name="nom-attribut" type="nom_type" use="statut"/>
+
+<!-- Type non défini -->
+<xs:attribute name="nom-attribut" use="statut">
+    <xs:simpleType>
+        ...
+    </xs:simpleType>
+</xs:attribute>
+```
+
+---
+#### Définition globale 
+
+```xml
+<!-- Type déjà défini, par exemple xs:string -->
+<xs:attribute name="nom-attribut" type="nom_type" />
+
+<!-- Type non défini -->
+<xs:attribute name="nom-attribut">
+    <xs:simpleType>
+        ...
+    </xs:simpleType>
+</xs:attribute>
+
+<!-- Référence locale à appeler -->
+<xs:attribut ref="nom-attribut" use="statut">
+```
+
+#### Valeurs possibles
+
+- name : nom de l'attribut
+- ref : référence au nom d'un attribut défini globalement dans le schéma
+- type : référence à un type défini globalement
+- use : statut de l'attribut défini ou référencé ("optional" par défaut, "required", "prohibited")
+
+---
+### Définition d'un type
+#### Définition locale
+
+```xml
+<xs:simpleType> ou <xs:complexeType>
+        ...
+</xs:simpleType> </xs:complexeType>
+```
+
+#### Définition globale 
+
+```xml
+<xs:simpleType name="nom_type">
+    <!-- définition du type -->
+</xs:simpleType> 
+<!-- ou type complexe -->
+
+<!-- Référence locale à appeler -->
+<xs:element name="nom-element" type="nom_type" ... />
+<xs:attribut name="nom-attribut" type="nom_type" ... />
+```
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
