@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Exemple de DTD interne-->
+
+<!--L'indentation de la DTD n'a pas d'importance
+    mais cela facilite la lecture-->
+
+<!--L'instruction DOCTYPE introduit la notion de DTD interne
+    Elle est suivit du nom de la racine du document-->
+<!DOCTYPE racine [
+
+    <!ELEMENT racine (element+)>
+    
+    <!ELEMENT element (sous-element+)>
+    <!ATTLIST element
+        nom CDATA #REQUIRED
+        prenom CDATA #IMPLIED>
+    
+    <!ELEMENT sous-element (#PCDATA)>
+    <!ATTLIST sous-element
+        id ID #REQUIRED>
+
+]>
+
+<racine>
+    <element nom="Varèse" prenom="Lorca">
+        <sous-element id="olw_yrr_hjb">Du texte</sous-element>
+        <sous-element id="kbv_btr_hjb"/>
+    </element>
+    <element nom="Caracole" prenom="">
+        <sous-element id="qn2_psr_hjb"/>
+    </element>
+</racine>

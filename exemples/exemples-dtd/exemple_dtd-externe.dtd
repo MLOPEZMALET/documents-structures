@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--Exemple de DTD externe au document XML-->
+
+<!--Attention: pas de DOCTYPE ici
+    il est déclaré dans le document XML-->
+
+<!ELEMENT racine (element+)>
+
+<!ELEMENT element (sous-element+)>
+<!ATTLIST element
+    nom CDATA #REQUIRED
+    prenom CDATA #IMPLIED>
+
+<!ELEMENT sous-element (#PCDATA)>
+<!ATTLIST sous-element
+    id ID #REQUIRED>

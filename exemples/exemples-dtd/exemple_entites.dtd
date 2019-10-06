@@ -1,0 +1,35 @@
+<?xml encoding="UTF-8"?>
+
+<!--Déclaration d'une entité XML 'maison-edition'
+    ayant pour valeur 'La Volte'
+    
+    Elle peut être utilisée dans un document XML
+    qui sera associée à cette DTD
+    
+    L'appel de l'entité est '&maison-edition;'
+-->
+<!ENTITY maison-edition "La Volte">
+
+<!--Déclaration d'une entité paramétrique appelée 'isbn'
+    Ne pas oublier le '%' avant d'introduire le nom
+    
+    Elle permet de remplacer en un appel, la déclaration
+    de l'attribut 'isbn' en indiquant son type et son obligation
+    Cet appel se fera dans la DTD (voir ligne 31)
+-->
+<!ENTITY % isnb "isbn NMTOKEN #REQUIRED">
+
+<!ELEMENT bibliographie (auteur)>
+
+<!ELEMENT auteur (livre)+>
+<!ATTLIST auteur
+  nom NMTOKEN #REQUIRED
+  prenom NMTOKEN #REQUIRED>
+
+<!ELEMENT livre (titre,edition?,datePublication)>
+<!ATTLIST livre
+  %isnb;>
+
+<!ELEMENT titre (#PCDATA)>
+<!ELEMENT edition (#PCDATA)>
+<!ELEMENT datePublication (#PCDATA)>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE racine SYSTEM "exemple_dtd-externe.dtd">
+<!--Le DOCTYPE sert à l'appel de la DTD externe
+    en précisant le nom du fichier .dtd
+
+    Toujours indiquer la racine du document XML
+-->
+
+<racine>
+    <element nom="Varèse" prenom="Lorca">
+        <sous-element id="olw_yrr_hjb">Du texte</sous-element>
+        <sous-element id="kbv_btr_hjb"/>
+    </element>
+    <element nom="Caracole" prenom="">
+        <sous-element id="qn2_psr_hjb"/>
+    </element>
+</racine>

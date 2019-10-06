@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE bibliographie SYSTEM "exemple_entites.dtd">
+
+<!--Dans la DTD exemple_entites.dtd, déclaration de l'entité
+    <!ENTITY maison-edition "La Volte">
+-->
+
+<!--Important: les navigateurs ne chargent pas les entités
+    externes lors de la visualisation du document XML
+    entraînant une erreur
+-->
+
+<bibliographie>
+    <auteur nom="Damasio" prenom="Alain">
+        
+        <livre isbn="2-84358-095-1">
+            <titre>La Zone du Dehors</titre>
+            <edition>Cylibris</edition>
+            <datePublication>1999</datePublication>
+        </livre>
+        <livre isbn="978-2-9522217-0-2">
+            <titre>La Horde du Contrevent</titre>
+            <edition>&maison-edition;</edition>
+            <datePublication>2004</datePublication>
+        </livre>
+        <livre isbn="978-2-37049-074-2">
+            <titre>Les Furtifs</titre>
+            <edition>&maison-edition;</edition>
+            <datePublication>2019</datePublication>
+        </livre>
+        
+    </auteur>
+
+</bibliographie>
