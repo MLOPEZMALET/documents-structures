@@ -1,0 +1,14 @@
+<Arrondissements>
+	<Arrondissement  num="">
+		<Tournage type="">
+			<Titre></Titre>
+			<Realisateur></Realisateur>
+			<Organisme_demandeur></Organisme_demandeur>
+			<Adresses>
+				<Adresse coordonnées="," date_debut="" date_fin=""></Adresse>
+				<Adresse coordonnées="," date_debut="" date_fin=""></Adresse>
+			</Adresses>
+		</Tournage>
+	</Arrondissement>
+
+</Arrondissements>

@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE lecteur
+[
+<!ENTITY typ "multimedia">
+<!ELEMENT fmt (marques+)>
+<!ELEMENT marque (modele+)>
+<!ATTLIST modele
+          id CDATA #REQUIRED
+          memoire CDATA #REQUIRED
+          prix CDATA #REQUIRED>
+]>
+
+<lecteur> 
+ <fmt> MP3
+   <marque> Apple
+     <modele> Ipod classic id="6273U2" memoire="160Go" prix="225€"
+     </modele>
+     <modele> Itouch id="27271623" memoire="16Go" prix="109€"
+     </modele>
+   </marque>
+   <marque> Mpman
+     <modele>Clipsy id="EEIZJZJE" memoire="2Go" prix="28€"
+     </modele>
+   </marque>
+ </fmt>
+ <fmt> MP4
+   <marque>
+     <modele>
+     </modele>
+   </marque>
+ </fmt>  
+</lecteur>  
+
+
+

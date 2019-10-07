@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--exemple OpenClassroom -->
+
+<!--attention, si <balise/> => balise vide!, attributs plus utiles a une machine, infos qu'on peut deduire soi-meme, pas essentielles (complémentaires qui permettent de mieux retrouverl'info sans l'extraire automatiquement d'une balise, par ex: type de voie pour une adresse, sexe d'une personne, unités d'un chiffre...) ==>le classement hierarichique de l'information est très important -->
+
+<repertoire>
+	<personne sexe="femme">
+		<nom>Martinez</nom>
+		<prenom>Marie</prenom>
+		<adresse>3 rue de Rivoli</adresse>
+		<telephones>
+			<telephone type="fixe">09833827</telephone>
+			<telephone type="portable">1627889</telephone>
+		</telephones>
+	</personne>
+	<personne sexe="homme">
+		<nom>Marin</nom>
+		<prenom>Martin</prenom>
+		<adresse>3 rue de la Miette</adresse>
+		<telephones>
+			<telephone type="fixe">09833827</telephone>
+			<telephone type="portable">1627889</telephone>
+		</telephones>
+	</personne>
+
+</repertoire>
+
+_____________________________________________
+
+cours:
+
+Bien formé: respecte règles de syntaxe
+Valide: conforma à la définition de la DTD
+
+DTD
+
+ELEMENT = BALISE	
+
+<!ELEMENT balise (contenudelabalise)>
+toutes les balises doivent être définies, toutes!
+possibles contenus : une balise fille, #PCDATA (valeur simple/ caractères, entier, décimal...), ANY (tout, pas recommandé car peu strict), EMPTY (si balise vide)
+
+PLUSIEURS BALISES DANS UNE BALISE?
+
+AND
+<!ELEMENT balise (balise1, balise2, balise3)>
+impérativement présentes dans le même ordre dans le doc que dans la définition du doc. Rien de plus, rien de moins.
+
+OR |
+<!ELEMENT balise (balise1 | balise2 | balise3>
+c'est une liste de choix, une des balises filles est contenue dans cette balise mère, mais une seule! Si les deux sont présentes, invalide.
+
+?
+<!ELEMENT balise (balise1, balise2, balise3?)>
+Les balises 1 et 2 sont obligatoirement présentes, la 3 l'est peut-être. Mais attention à l'ordre, il faut que ce soit le même!!!!
+
+*
+<!ELEMENT balise (balise1*, balise2)>
+La balise 1 peut se répéter à l'infini ou ne pas être là du tout.
+
++
+<!ELEMENT balise (balise1+, balise2)>
+La balise 1 doit être présente au moins une fois.
+
+
+ATTLIST = ATTRIBUTS
+
+<!ATTLIST balise attribut type mode>
+balise qui contient l'attribut, 
+nom de l'attribut ( pas sa valeur), 
+type= liste des valeurs possibles (v1 | v2 | v3), toute valeur car non parsées (CDATA), si valeur unique (ID : une seule balise aura cet attribut, par ex dans une modélisation des résultats d'une course), IDREF reprend l'attribut unique d'une autre balise. 
+mode=obligatoire (#REQUIRED), optionnel (#IMPLIED), si présent a une seule valeur possible (#FIXED "valeur"), par défaut si aucune renseignée ("valeur")
+
+
+ENTITES
+
+permet de réutiliser des informations (//alias)
+
+ENTITES GENERALES
+
+DTD : <!ENTITY alias "valeur">
+XML : <balise>&alias;></balise> --> au moment de l'interprétation, l'alias sera remplacé par "valeur"
+
+ENTITES PARAMETRES
+
+possible que dans DTD
+
+<!ENTITY %alias "valeur">
+
+Exemple:
+
+<telephone marque="Samsung"/>
+<telephone marque="Apple"/>
+
+Normalement, pour indiquer que l'attribut marque de la balise <telephone/> est obligatoire et qu'il doit contenir la valeur Samsung ou Apple, nous devons écrire la règle suivante :
+
+<!ATTLIST telephone marque (Samsung|Apple) #REQUIRED>
+
+À l'aide d'une entité paramètre, cette même règle s'écrit de la façon suivante :
+
+<!ENTITY % listeMarques "marque (Samsung|Apple) #REQUIRED">
+
+<!ATTLIST telephone %listeMarques; >
+
+Au moment de son interprétation, les références aux entités seront remplacées par leurs valeurs respectives.
+
+ENTITES EXTERNES
+
+analysées (comme générales mais la valeur correspondant au nom/alias de l'entité est dans un fichier à part) et non analysées (?)
+
+Voyons tout de suite la syntaxe d'une entité externe :
+
+DTD: <!ENTITY nom SYSTEM "lien vers le fichier.xml">
+XML: &nom;
+
+Exemple:
+
+<!ENTITY samsung SYSTEM "samsung.xml">
+<!ENTITY apple SYSTEM "apple.xml">
+
+
+<telephone>
+  &samsung;
+  <modele>Galaxy S3</modele>
+</telephone>
+<telephone>
+  &apple;
+  <modele>iPhone 4</modele>
+</telephone>
+
+<!-- Contenu du fichier samsung.xml -->
+<marque>Samsung</marque>
+
+<!-- Contenu du fichier apple.xml -->
+<marque>Apple</marque>
+
+ce qui donne une fois interprété :
+
+<telephone>
+  <marque>Samsung</marque>
+  <modele>Galaxy S3</modele>
+</telephone>
+<telephone>
+  <marque>Apple</marque>
+  <modele>iPhone 4</modele>
+</telephone>
+
+--> permet de gagner du temps et de ne pas réécrire des éléments qui reviennent souvent dans un doc.
+
