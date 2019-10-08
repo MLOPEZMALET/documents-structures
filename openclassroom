@@ -84,7 +84,7 @@ XML : <balise>&alias;></balise> --> au moment de l'interprétation, l'alias sera
 
 ENTITES PARAMETRES
 
-possible que dans DTD
+possible que dans DTD, entre balises du DTD
 
 <!ENTITY %alias "valeur">
 

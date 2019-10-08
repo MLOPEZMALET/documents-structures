@@ -1,0 +1,15 @@
+<!DOCTYPE Arrondissements [
+
+<!ELEMENT Arrondissements (Arrondissement+) >
+<!ELEMENT Arrondissement (Tournage)>
+<!ELEMENT Tournage (Titre, Realisateur, Organisme_demandeur, Adresse)>
+<!ATTLIST Tournage type (SERIE_TELEVISEE|LONG_METRAGE|TELEFILM) #REQUIRED>
+<!ELEMENT Titre (#PCDATA)>
+<!ELEMENT Realisateur (#PCDATA)>
+<!ELEMENT Organisme_demandeur (#PCDATA)>
+<!ELEMENT Adresse (#PCDATA)>
+<!ATTLIST Adresse coordonnees CDATA #IMPLIED
+date_debut CDATA #REQUIRED
+date_fin CDATA #REQUIRED>
+	
+]>
