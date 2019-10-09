@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documents Structurés</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Cours 04
+## 10/10/2019
+
+---
+# Introduction
+
+Jusqu'à présent, nous avons vu la manipulation à la main des fichiers XML
+- utile pour débuter
+- pour éditer un fichier ponctuellement
+
+Le but est d'optimiser tout l'éco-système pour la manipulation du XML
+- lire ou créer ou éditer un fichier
+
+Plutôt que de tout réaliser manuellement, on va se servir des langages de programmation pour intéragir avec nos documents
+
+Néanmoins, rien de magique, toujours besoin d'une intervention humaine
+
+---
+# Les parsers XML
+
+Un __parser__ par abus de langage, est un analyseur syntaxique
+
+Son rôle est de vérifier la cohérence syntaxique ...
+
+... et de transmettre les informations sur la structure
+
+Représentation de  la structure du document XML en mémoire.
+
+Executer différentes instructions sur notre XML
+- vérifier sa bonne formation
+- le valider avec une grammaire ou un schéma
+- ajout de noeuds (éléments, attributs, texte, ...)
+- modification de noeuds existants
+- suppression de noeuds existants
+
+Diverses implémentations dans plusieurs langages (python, c, java, ...)
+
+---
+# Document Object Model
+## DOM
+
+Modèle définit par le [W3C](https://www.w3.org/DOM/#what)
+
+Représentation sous forme d'arbre la structure du document
+
+Chaque noeud est un objet
+
+Permet de lire, manipuler et modifier le document XML
+
+=\> Tout le document est chargé en mémoire
+
+---
+# Simple Api for XML
+## SAX
+
+Pas de spécifications par un consortium
+
+Communication entre le parser et l'application grâce à un mécanisme évènementiel
+
+Découpage du document en plusieurs unités
+- ouverture d'éléments
+- fermeture
+- début d'un texte
+- etc.
+
+Le document n'est pas représenté intégralement en mémoire
+
+=\> Document en lecture seul
+
+
+---
+### DOM
+
+- Modèle en arbre de noeuds
+- Chargement de tout le contenu en mémoire puis _parsing_
+- Contrainte de mémoire à cause du chargement complet en mémoire
+- Possibilité de lecture et écriture
+- Navigation avant et arrière sont possibles dans la structure de l'arbre
+- Plus lent à l'exécution
+
+### SAX
+
+- Parser basé sur des évènements
+- Lecture du fichier tel qu'il est _parsé_
+- Moins de contrainte sur la mémoire car seulement une partie est lue
+- Lecture seul (pas de modification du fichier)
+- À préférer pour les gros fichiers
+- La navigation vers l'arrière est impossible
+- Plus rapide d'exécution
+
+Source : [What is the difference between SAX and DOM?](https://stackoverflow.com/questions/6828703/what-is-the-difference-between-sax-and-dom)
+
+---
+## Implémentations en python
+
+### Dans la librairie standard
+
+- [xml.etree.ElementTree](https://docs.python.org/3/library/xml.etree.elementtree.html#module-xml.etree.ElementTree)
+- [xml.dom](https://docs.python.org/3/library/xml.dom.html#module-xml.dom)
+- [xml.sax](https://docs.python.org/3/library/xml.sax.html#module-xml.sax)
+
+Plus d'informations sur les différences : [XML parsing - ElementTree vs SAX and DOM](https://stackoverflow.com/questions/192907/xml-parsing-elementtree-vs-sax-and-dom)
+
+### Modules externes
+
+- [lxml](https://lxml.de/)
+- [BeautifulSoup](ihttps://www.crummy.com/software/BeautifulSoup/): implémente le parser lxml
+
+---
+## LXML
+
+```python
+from lxml import etree
+
+xmlfile = "mon_fichier_xml"
+
+# Initialiser la lecture du fichier
+tree = etree.parse(xmlfile)
+```
+
+```python
+# Le contenu en tant que string
+print(etree.tostring(tree))
+
+# La racine
+root = tree.getroot()
+print(root.tag)
+```
+
+---
+
+```python
+# Utiliser un espace de nom
+TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0"
+TEI = "{%s}" % TEI_NAMESPACE
+
+# Obtenir le tag et valeur des enfants de <titleStmt>
+for element in root.iter(TEI + 'titleStmt'):
+    for child in element:
+        print(child.tag, child.text, child.attrib)
+```
+
+```python
+# Afficher les attributs (dictionnaire)
+print(root.attrib)
+
+# Afficher un attribut particulier
+print(root.get('{http://www.w3.org/XML/1998/namespace}' + 'lang'))
+
+# Ajouter un attribut
+root.set('nouvel-attribut', 'documentsStructures')
+print(root.attrib)
+```
+
+---
+
+```python
+# Ajouter un enfant
+text = etree.SubElement(root, "text")
+#text.text = "un texte"
+#text.set("un-attribut", 'une-valeur')
+```
+
+```python
+# Afficher joliment
+print(etree.tostring(root, pretty_print=True))
+```
+
+---
+## Exercices
+
+À partir du fichier `exo-parser/valery_ame-et-danse_1921.xml`
+
+- Afficher le nom de l'éditeur `<edition>`
+- Afficher l'url de la licence `<licence>`
+- Afficher le personnage avec le plus de réplique (@speaker), et le nombre de répliques
+- Ajouter un autre `<respStmt>` avec deux enfants `name` et `resp` contenant du texte
+- Modifier la valeur de la signature `<signature>` pour afficher le texte existant en majuscule
+
+---
+## Exercices
+
+À partir du fichier `exo-parser/Duchn-etiquetage.txt.xml`
+
+- Extraire tous les déterminants
+- Afficher les patrons DET - NOM
+- Reconstruire les phrases
+- Transformer l'affichage en : token/lemme/pos
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
+

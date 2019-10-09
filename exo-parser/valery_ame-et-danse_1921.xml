@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../Teinte/tei2html.xsl"?>
+<?xml-model href="http://oeuvres.github.io/Teinte/teinte.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<!--Odette: 2018-03-20T09:38:30+01:00-->
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fre">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>L’âme et la danse</title>
+        <author key="Valéry, Paul (1871-1945)" ref="https://data.bnf.fr/fr/11927470/paul_valery/"
+          >Paul Valéry</author>
+      </titleStmt>
+      <editionStmt>
+        <edition>OBVIL</edition>
+        <respStmt>
+          <name>Delphine Maître </name>
+          <resp>OCR et Stylage sémantique </resp>
+        </respStmt>
+        <respStmt>
+          <name>Delphine Vernozy</name>
+          <resp>Relecture</resp>
+        </respStmt>
+        <respStmt>
+          <name>Éric Thiébaud</name>
+          <resp>édition TEI</resp>
+        </respStmt>
+        <respStmt>
+          <name>Anne-Laure Huet</name>
+          <resp>édition TEI</resp>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>Sorbonne Université, LABEX OBVIL</publisher>
+        <date when="2018"/>
+        <idno>http://obvil.sorbonne-universite.fr/corpus/danse/valery_ame-et-danse_1921</idno>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/">
+            <p>Copyright © 2018 Sorbonne Université, agissant pour le Laboratoire d’Excellence
+              « Observatoire de la vie littéraire » (ci-après dénommé OBVIL).</p>
+            <p>Cette ressource électronique protégée par le code de la propriété intellectuelle sur
+              les bases de données (L341-1) est mise à disposition de la communauté scientifique
+              internationale par l’OBVIL, selon les termes de la licence Creative Commons :
+              « Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 France (CC
+              BY-NC-ND 3.0 FR) ».</p>
+            <p>Attribution : afin de référencer la source, toute utilisation ou publication dérivée
+              de cette ressource électroniques comportera le nom de l’OBVIL et surtout l’adresse
+              Internet de la ressource.</p>
+            <p>Pas d’Utilisation Commerciale : dans l’intérêt de la communauté scientifique, toute
+              utilisation commerciale est interdite.</p>
+            <p>Pas de Modification : l’OBVIL s’engage à améliorer et à corriger cette ressource
+              électronique, notamment en intégrant toutes les contributions extérieures, la
+              diffusion de versions modifiées de cette ressource n’est pas souhaitable.</p>
+          </licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>Paul Valéry, « L’Âme et la Danse », in « Le Ballet au <hi rend="sc">xix</hi><hi
+            rend="sup">e</hi> siècle », numéro spécial de la <hi rend="i">Revue musicale</hi> du
+            1<hi rend="sup">er</hi> décembre 1921, <pubPlace>Paris</pubPlace>, <publisher>Éditions
+            de la Nouvelle Revue française</publisher>, <date>1921</date>, 135 p., p. 99-128. PDF :
+            <ref target="http://www.archive.org/details/leballetau19esi00pariuoft">Internet
+            Archive</ref>.</bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <creation>
+        <date when="1921"/>
+      </creation>
+      <langUsage>
+        <language ident="fre"/>
+      </langUsage>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div>
+        <pb n="99"/>
+        <head>L’Âme et la Danse, <lb/>par Paul Valéry</head>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Ô Socrate, je meurs !… Donne-moi de l’esprit ! Verse l’idée !… Porte à mon nez tes
+          énigmes aiguës !… Ce repas sans pitié passe toute appétence concevable et toute soif digne
+          de foi !… Quel état que de succéder à de bonnes choses, et que d’hériter une digestion !…
+          Mon âme n’est plus qu’un songe que fait la matière en lutte avec elle-même !… Ô choses
+          bonnes et trop bonnes, je vous ordonne de passer !… Hélas ! depuis la chute du jour que
+          nous sommes en proie à ce qu’il y a de meilleur au monde, ce terrible meilleur, multiplié
+          par la durée, inflige une insupportable présence… À la fin, je péris d’un désir insensé de
+          choses sèches, et sérieuses, et tout à fait spirituelles !… Permets que je vienne
+          m’asseoir auprès de toi et de Phèdre ; et le dos délibérément opposé à ces viandes
+          toujours renaissantes et à ces urnes intarissables, laisse-moi que je tende à vos paroles
+          la coupe suprême de mon esprit. Que disiez-vous ?</p>
+        <pb n="100"/>
+        <label type="speaker">PHÈDRE</label>
+        <p>Rien, encore. Nous regardions manger et boire nos semblables…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Mais Socrate ne laissait pas de méditer sur quelque chose ?… Peut-il jamais demeurer
+          solitaire avec soi-même, et silencieux jusque dans l’âme ! Il souriait tendrement à son
+          démon sur les bords ténébreux de ce festin. Que murmurent tes lèvres, cher Socrate ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elles me disent doucement : l’homme qui mange est le plus juste des hommes…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Voici déjà l’énigme, et l’appétit de l’esprit qu’elle est faite pour exciter…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>L’homme qui mange, disent-elles, il nourrit ses biens et ses maux. Chaque bouchée qu’il
+          sent se fondre et se disperser en lui-même, va porter des forces nouvelles à ses vertus,
+          comme elle fait indistinctement à ses vices. Elle sustente ses tourments comme elle
+          engraisse ses espérances ; et se divise quelque part entre les passions et les raisons.
+          L’amour en a besoin comme la haine ; et ma joie et mon amertume, ma mémoire avec mes
+          projets, se partagent en frères la même substance d’une becquée. Qu’en penses-tu, fils
+          d’Acumène ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Je pense que je pense comme toi.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Ô médecin que tu es, j’admirais silencieusement les actes de tous ces corps qui se
+          nourrissent. Chacun, sans le savoir, donne équitablement ce qui leur revient, à chacune
+          des chances de vie, à chacun des germes de mort qui sont en lui. Ils ne savent ce qu’ils
+          font, mais ils le font comme des dieux.</p>
+        <pb n="101"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Je l’ai observé depuis longtemps : tout ce qui pénètre dans l’homme, se comporte dans la
+          suite très prochaine comme il plaît aux destins. On dirait que l’isthme du gosier est le
+          seuil de nécessités capricieuses et du mystère organisé. Là, cesse la volonté, et l’empire
+          certain de la connaissance. C’est pourquoi j’ai renoncé, dans l’exercice de mon art, à
+          toutes ces drogues inconstantes que le commun des médecins imposent à la diversité de
+          leurs malades ; et je m’en tiens étroitement à des remèdes évidents, conjugués un contre
+          un par leur nature.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Quels remèdes ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Il y en a huit : le chaud, le froid ; l’abstinence et son contraire ; l’air et l’eau ; le
+          repos et le mouvement. C’est tout.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Mais pour l’âme, il n’y en a que deux, Éryximaque.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Lesquels donc ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>La vérité et le mensonge.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Comment cela ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Ne sont-ils pas entre eux comme la veille et le sommeil ? Ne cherches-tu pas le réveil et
+          la netteté de la lumière, quand un mauvais rêve te travaille ? Ne sommes-nous pas
+          ressuscités par le soleil en personne, et fortifiés par la présence des corps solides ?
+          — Mais, en revanche, n’est-ce point au sommeil et aux songes, que nous demandons de
+          dissoudre les ennuis et de suspendre les peines qui nous chevauchent dans le monde du
+          jour ? Et donc, nous fuyons de l’un dans l’autre, invoquant le jour au milieu de la nuit ;
+          implorant, au contraire, les ténèbres, pendant que nous <pb n="102"/>avons la lumière ;
+          anxieux de savoir, trop heureux d’ignorer, nous cherchons dans ce qui est, un remède à ce
+          qui n’est pas ; et dans ce qui n’est pas, un soulagement à ce qui est. Tantôt le réel,
+          tantôt l’illusion nous recueille ; et l’âme, en définitive, n’a point d’autres ressources
+          que le vrai, qui est son arme, — et le mensonge, son armure.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Bien, bien… Mais ne crains-tu pas, cher Socrate, une certaine conséquence de cette pensée
+          qui t’est venue ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Quelle conséquence ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Celle-ci : la vérité et le mensonge tendent au même but… C’est une même chose qui, s’y
+          prenant diversement, nous fait menteurs ou véridiques ; et comme, tantôt le chaud, tantôt
+          le froid, tantôt nous attaquent, tantôt nous défendent, ainsi le vrai et le faux, et les
+          volontés opposées qui s’y rapportent.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Rien de plus sûr. Je n’y puis rien. C’est la vie même qui le veut : tu le sais mieux que
+          moi, qu’elle se sert de tout. Tout lui est bon, Éryximaque, pour ne jamais conclure. C’est
+          là ne conclure qu’à elle-même… N’est-elle pas ce mouvement mystérieux qui, par le détour
+          de tout ce qui arrive, me transforme incessamment en moi-même, et qui me ramène assez
+          promptement à ce même Socrate pour que je le retrouve, et que m’imaginant nécessairement
+          de le reconnaître, <hi rend="i">je sois</hi> ? — Elle est une femme qui danse, et qui
+          cesserait divinement d’être femme, si le bond qu’elle a fait, elle y pouvait obéir
+          jusqu’aux nues. Mais comme nous ne pouvons aller à l’infini, ni dans le rêve ni dans la
+          veille, elle, pareillement, redevient toujours elle-même ; cesse d’être flocon, oiseau,
+          idée ; — d’être enfin tout ce qu’il plut à la flûte qu’elle fût, car la même Terre qui l’a
+          envoyée, la rappelle, et la rend toute haletante à sa nature de femme et à son ami…</p>
+        <pb n="103"/>
+        <label type="speaker">PHÈDRE</label>
+        <p>Miracle !… Merveilleux homme !… Presque un vrai miracle ! À peine tu parles, tu engendres
+          ce qu’il faut !… Tes images ne peuvent demeurer images !… Voici précisément, — comme si de
+          ta bouche créatrice, naissaient l’abeille, et l’abeille, et l’abeille, — voici le chœur
+          ailé des illustres danseuses !… L’air résonne et bourdonne des présages de
+          l’orchestique !… Toutes les torches se réveillent… Le murmure des dormeurs se transforme ;
+          et sur les murs de flammes agités, s’émerveillent et s’inquiètent les ombres immenses des
+          ivrognes !… Voyez-moi cette troupe mi-légère, mi-solennelle ! — Elles entrent comme des
+          âmes !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Par les dieux, les claires danseuses !… Quelle vive et gracieuse introduction des plus
+          parfaites pensées !… Leurs mains parlent, et leurs pieds semblent écrire. Quelle précision
+          dans ces êtres qui s’étudient à user si heureusement de leurs <pb n="104"/>forces
+          moelleuses !… Toutes mes difficultés me désertent, et il n’est point à présent de problème
+          qui m’exerce, tant j’obéis avec bonheur à la mobilité de ces figures ! Ici, la certitude
+          est un jeu ; on dirait que la connaissance a trouvé son acte, et que l’intelligence tout à
+          coup consent aux grâces spontanées… Regardez celle-ci !… la plus mince et la plus absorbée
+          dans la justesse pure… Qui donc est-elle ?… Elle est délicieusement dure, et
+          inexprimablement souple… Elle cède, elle emprunte, elle restitue si exactement la cadence,
+          que si je ferme les yeux, je la vois exactement par l’ouïe. Je la suis, et je la retrouve,
+          et je ne puis jamais la perdre ; et si, les oreilles bouchées, je la regarde, tant elle
+          est rythme et musique, qu’il m’est impossible de ne pas entendre les cithares.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>C’est Rhodopis, je crois, celle-ci qui t’enchante.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>De Rhodopis, alors, l’oreille est merveilleusement liée à la cheville… Qu’elle est
+          juste !… Le vieux temps en est tout rajeuni !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Mais non, Phèdre !… Rhodopis est l’autre, qui est si douce, et si aisée à caresser
+          indéfiniment de l’œil.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Mais alors, qui donc est le mince monstre de souplesse ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Rhodonia.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>De Rhodonia, l’oreille est merveilleusement liée à la cheville.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>D’ailleurs, je les connais toutes, et une à une. Je puis vous dire tous leurs noms. Ils
+          s’arrangent très bien en un petit poème qui se retient facilement : Nips, Niphoé, Néma ;
+          — Niktéris, Néphélé, Nexis ; — Rhodopis, Rhodonia, Ptilé… Quant au petit danseur qui est
+          si laid, on le nomme Nettarion… Mais la reine du Chœur n’est pas encore entrée.</p>
+        <pb n="105"/>
+        <label type="speaker">PHÈDRE</label>
+        <p>Et qui donc règne sur ces abeilles ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>L’étonnante et l’extrême danseuse, Athikté !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Comme tu les connais !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Tout ce monde charmant a bien d’autres noms ! Les uns qui leur viennent de leurs
+          parents ; et les autres, de leurs intimes…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>C’est toi, l’intime !… Tu les connais beaucoup trop bien !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Je les connais bien mieux que bien, et en quelque manière, un peu mieux qu’elles se
+          connaissent elles-mêmes. Ô Phèdre, ne suis-je pas <hi rend="i">le médecin</hi> ? — En moi,
+          par moi, tous les secrets de la médecine s’échangent en secret contre tous les secrets de
+          la danseuse ! Elles m’appellent pour toute chose. Entorses, boutons, fantasmes, peines de
+          cœur, accidents si variés de leur profession (et ces accidents substantiels qui se
+          déduisent aisément d’une carrière très mobile), — et leurs mystérieux malaises ; voire la
+          jalousie, qu’elle soit artistique ou passionnelle ; voire songes !… Sais-tu qu’il me
+          suffit qu’elles me chuchotent quelque rêve qui les tourmente, pour que je puisse, par
+          exemple, en conclure à l’altération de quelque dent ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Homme admirable, qui par les songes connais les dents, penses-tu que les philosophes
+          aient les leurs toutes gâtées ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>De la morsure de Socrate me préservent les dieux !</p>
+        <label type="speaker">PHÈDRE</label>
+        <pb n="106"/>
+        <p>Regardez-moi plutôt ces bras et ces jambes innombrables !… Quelques femmes font mille
+          choses. Mille flambeaux, mille péristyles éphémères, des treilles, des colonnes… Les
+          images se fondent, s’évanouissent… C’est un bosquet aux belles branches tout agitées par
+          les brises de la musique ! — Est-il rêve, ô Éryximaque, qui signifie plus de tourments, et
+          plus de dangereuses altérations de nos esprits ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Mais ceci est précisément le contraire d’un rêve, cher Phèdre.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Mais moi, je rêve… Je rêve à la douceur, multipliée indéfiniment par elle-même, de ces
+          rencontres, et de ces échanges de formes de vierges. Je rêve à ces contacts inexprimables
+          qui se produisent dans l’âme, entre les temps, entre les blancheurs et les passes de ces
+          membres en mesure, et les accents de cette sourde symphonie sur laquelle toutes choses
+          semblent peintes et portées… Je respire, comme une odeur muscate et composée, ce mélange
+          de filles charmeresses ; et ma présence s’égare dans ce dédale de grâces, où chacune se
+          perd avec une compagne, et se retrouve avec une autre.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Âme voluptueuse, vois donc ici le contraire d’un rêve, et le hasard absent… Mais le
+          contraire d’un rêve, qu’est-ce, Phèdre, sinon quelque autre rêve ?… Un rêve de vigilance
+          et de tension que ferait la Raison elle-même ! — Et que rêverait une Raison ? — Que si une
+          Raison rêvait, dure, debout, l’œil armé, et la bouche fermée, comme maîtresse de ses
+          lèvres, — le songe qu’elle ferait, ne serait-ce point ce que nous voyons maintenant, — ce
+          monde de forces exactes et d’illusions étudiées ? — Rêve, rêve, mais rêve tout pénétré de
+          symétries, tout ordre, tout actes et séquences !… Qui sait quelles Lois augustes rêvent
+          ici qu’elles ont pris de clairs visages, et qu’elles s’accordent dans le dessein de
+          manifester aux mortels comment le réel, l’irréel et l’intelligible se peuvent fondre et
+          combiner selon la puissance des Muses ?</p>
+        <pb n="107"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Il est bien vrai, Socrate, que le trésor de ces images est inestimable… Ne crois-tu pas
+          que la pensée des Immortels soit précisément ce que nous voyons, et que l’infinité de ces
+          nobles similitudes, les conversions, les inversions, les diversions inépuisables qui se
+          répondent et se déduisent sous nos yeux, nous transportent dans les connaissances
+          divines ?</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Qu’il est pur, qu’il est gracieux, ce petit temple rose et rond qu’elles composent
+          maintenant, et qui tourne lentement comme la nuit !… Il se dissipe en jeunes filles, les
+          tuniques s’envolent, et les dieux semblent changer d’idée !…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>La divine pensée est à présent cette foison multicolore de groupes de figures
+          souriantes ; elle engendre les redites de ces manœuvres délicieuses, ces tourbillons
+          voluptueux qui se forment de deux ou trois corps et qui ne peuvent plus se rompre… L’une
+          d’elles est comme captive. Elle ne sortira plus de leurs enchaînements enchantés !…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Mais que font-elles tout à coup ?… Elles s’emmêlent, elles s’enfuient !…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elles volent aux portes. Elles s’inclinent pour accueillir.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Athikté ! Athikté ! Ô dieux !… l’Athikté la palpitante !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle n’est rien.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Petit oiseau !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Chose sans corps !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Chose sans prix !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Ô Socrate, on dirait qu’elle obéit à des figures invisibles !</p>
+        <pb n="108"/>
+        <label type="speaker">SOCRATE</label>
+        <p>Ou qu’elle cède à quelque noble destinée !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Regarde ! Regarde !… Elle commence, vois-tu bien ? par une marche toute divine : c’est
+          une simple marche circulaire… Elle commence par le suprême de son art ; elle marche avec
+          naturel sur le sommet qu’elle a atteint. Cette seconde nature est ce qu’il y a de plus
+          éloigné de la première, mais il faut qu’elle lui ressemble à s’y méprendre.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Je jouis comme personne de cette magnifique liberté. Les autres, maintenant, sont fixes
+          et comme enchantées. Les musiciennes s’écoutent, et ne la perdent pas de vue… Elles
+          adhèrent à la chose, et semblent insister sur la perfection de leur accompagnement.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>L’une, de corail rose, et curieusement ployée, souffle dans un énorme coquillage.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>La très longue flûtiste aux cuisses fuselées, et l’une à l’autre étroitement tressées,
+          allonge son pied élégant dont l’orteil marque la mesure… Ô Socrate, que te semble de la
+          danseuse ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Éryximaque, ce petit être donne à penser… Il assemble sur soi, il assume une majesté qui
+          était confuse dans nous tous, et qui habitait imperceptiblement les acteurs de cette
+          débauche… Une simple marche, et déesse la voici ; et nous, presque des dieux !… Une simple
+          marche, l’enchaînement le plus simple !… On dirait qu’elle paye l’espace avec de beaux
+          actes bien égaux, et qu’elle frappe du talon les sonores effigies du mouvement. Elle
+          semble énumérer et compter en pièces d’or pur, ce que nous dépensons distraitement en
+          vulgaire monnaie de pas, quand nous marchons à toute fin.</p>
+        <pb n="109"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Cher Socrate, elle nous apprend ce que nous faisons, montrant clairement à nos âmes, ce
+          que nos corps obscurément accomplissent. À la lumière de ses jambes, nos mouvements
+          immédiats nous apparaissent des miracles. Ils nous étonnent enfin autant qu’il le
+          faut.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>En quoi cette danseuse aurait, selon toi, quelque chose de socratique, nous enseignant,
+          quant à la marche, à nous connaître un peu mieux nous-mêmes ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Précisément. Nos pas nous sont si faciles et si familiers qu’ils n’ont jamais l’honneur
+          d’être considérés en eux-mêmes, et en tant que des actes étranges (à moins qu’infirmes ou
+          perclus, la privation nous conduise à les admirer)… Ils mènent donc comme ils le savent,
+          nous qui les ignorons naïvement ; et suivant le terrain, le but, l’humeur, l’état de
+          l’homme, ou même l’éclairement de la route, ils sont ce qu’ils sont : nous les perdons
+          sans y penser.</p>
+        <p>Mais considère cette parfaite procession de l’Athikté, sur le sol sans défaut, libre,
+          net, et à peine élastique. Elle place avec symétrie sur ce miroir de ses forces, ses
+          appuis alternés ; le talon versant le corps vers la pointe, l’autre pied passant et
+          recevant ce corps, et le reversant à l’avance ; et ainsi, et ainsi ; cependant que la cime
+          adorable de sa tête trace dans l’éternel présent, le front d’une vague ondulée.</p>
+        <p>Comme le sol ici est en quelque sorte absolu, étant dégagé soigneusement de toutes causes
+          d’arythmie et d’incertitude, cette marche monumentale qui n’a qu’elle-même pour but, et
+          dont toutes les impuretés variables ont disparu, devient un modèle universel.</p>
+        <p>Regarde quelle beauté, quelle pleine sécurité de l’âme résulte de cette longueur de ses
+          nobles enjambées. Cette amplitude de ses pas est accordée avec leur nombre, lequel émane
+          directement de la musique. Mais nombre et longueur sont, d’autre part, secrètement en
+          harmonie avec la stature…</p>
+        <pb n="110"/>
+        <label type="speaker">SOCRATE</label>
+        <p>Tu parles si bien de ces choses, docte Éryximaque, que je ne puis m’empêcher de voir
+          selon ta pensée. Je contemple cette femme qui marche et qui me donne le sentiment de
+          l’immobile. Je ne m’attache qu’à l’égalité de ces mesures…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elle s’arrête, au milieu de ces grâces commensurables…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Vous allez voir !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elle ferme les yeux…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle est tout entière dans ses yeux fermés, et toute seule avec son âme, au sein de
+          l’intime attention… Elle se sent en elle-même devenir quelque événement.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Attendez-vous à… Silence, silence !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Délicieux instant… Ce silence est contradiction… Comment faire pour ne pas crier :
+          Silence !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Instant absolument vierge. Et puis, instant où quelque chose doit se rompre dans l’âme,
+          dans l’attente, dans l’assemblée… Quelque chose se rompre… Et cependant, c’est aussi comme
+          une soudure.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Ô Athikté ! Que tu es excellente dans l’imminence !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>La musique doucement semble la ressaisir d’une autre manière, la soulève…</p>
+        <pb n="111"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>La musique lui change son âme.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Vous êtes, en ce moment qui va mourir, maîtresses toutes-puissantes, ô Muses !</p>
+        <p>Suspens délicieux des souffles et des cœurs !… La pesanteur tombe à ses pieds ; et ce
+          grand voile qui s’abat sans aucun bruit le fait comprendre. On ne doit voir son corps
+          qu’en mouvement.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Ses yeux sont revenus à la lumière…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Jouissons de l’instant très délicat où elle change de volonté !… Comme l’oiseau arrivé au
+          bord même du toit, brise avec le beau marbre, et tombe dans son vol…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Je n’aime rien tant que ce qui va se produire ; et jusque dans l’amour, je ne trouve rien
+          qui l’emporte en volupté sur les tout premiers sentiments. De toutes les heures du jour,
+          l’aube est ma préférée. C’est pourquoi je veux voir avec une tendre émotion, poindre sur
+          cette vivante, le mouvement sacré. Voyez !… Il naît de ce glissant regard qui entraîne
+          invinciblement la tête aux douces narines vers l’épaule bien éclairée… Et la belle fibre
+          tout entière de son corps net et musculeux, de la nuque jusqu’au talon, se prononce et se
+          tord progressivement ; et le tout frémit… Elle dessine avec lenteur l’enfantement d’un
+          bond… Elle nous défend de respirer jusqu’à l’instant qu’elle jaillisse, répondant par un
+          acte brusque à l’éclat attendu et inattendu des déchirantes cymbales !…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Oh ! la voici donc enfin, qui entre dans l’exception et qui pénètre dans ce qui n’est pas
+          possible !… Comme nos âmes sont pareilles, ô mes amis, devant ce prestige, qui est égal et
+          entier, pour chacune d’elles !… Comme elles boivent ensemble ce qui est beau !</p>
+        <pb n="112"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Toute, elle devient danse, et toute se consacre au mouvement total !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elle semble d’abord, de ses pas pleins d’esprit, effacer de la terre toute fatigue, et
+          toute sottise… Et voici qu’elle se fait une demeure un peu au-dessus des choses, et l’on
+          dirait qu’elle s’arrange un nid dans ses bras blancs… Mais, à présent, ne croirait-on pas
+          qu’elle se tisse de ses pieds un tapis indéfinissable de sensations ?… Elle croise, elle
+          décroise, elle trame la terre avec la durée… Ô le charmant ouvrage, le travail très
+          précieux de ses orteils intelligents qui attaquent, qui esquivent, qui nouent et qui
+          dénouent, qui se pourchassent, qui s’envolent !… Qu’ils sont habiles, qu’ils sont vifs,
+          ces purs ouvriers des délices du temps perdu !… Ces deux pieds babillent entre eux, et se
+          querellent comme des colombes !… Le même point du sol les fait se disputer comme pour un
+          grain !… Ils s’emportent ensemble, et se choquent dans l’air, encore !… Par les Muses,
+          jamais pieds n’ont fait à mes lèvres plus d’envie !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Voici donc que tes lèvres sont envieuses de la volubilité de ces pieds prodigieux ! Tu
+          aimerais de sentir leurs ailes à tes paroles, et d’orner ce que tu dirais de figures aussi
+          vives que leurs bonds !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Moi ?…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Il ne songeait qu’à becqueter les pédestres tourterelles !… C’est un effet de cette
+          attention passionnée qu’il donne au spectacle de la danse. Quoi de plus naturel, Socrate,
+          quoi de plus ingénuement mystérieux ?… Notre Phèdre est tout ébloui de ces pointes et de
+          ces pirouettes étincelantes qui font le juste orgueil des extrêmes orteils de l’Athikté ;
+          il les dévore de ses yeux, il leur tend le visage ; il croit bien de sentir sur ses lèvres
+          courir les agiles onyx ! — Ne t’excuse pas, cher Phèdre, ne sois pas le moins du monde
+          troublé !… Tu n’as rien éprouvé qui ne <pb n="113"/>soit légitime et obscur, et donc,
+          parfaitement conforme à la machine des mortels. Ne sommes-nous pas une fantaisie
+          organisée ? Et notre système vivant n’est-il pas une incohérence qui fonctionne, et un
+          désordre qui agit ? — Les événements, les désirs, les idées, ne s’échangent-ils pas en
+          nous de la sorte la plus nécessaire et la plus incompréhensible ?… Quelle cacophonie de
+          causes et d’effets !…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Mais tu as très bien expliqué toi-même ce que j’ai innocemment ressenti…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Cher Phèdre, en vérité, tu ne fus pas ému sans quelque raison. Plus je regarde, moi
+          aussi, cette danseuse inexprimable, et plus je m’entretiens de merveilles avec moi-même.
+          Je m’inquiète comment la nature a su enfermer dans cette fille si frêle et si fine, un tel
+          monstre de force et de promptitude ? Hercule changé en hirondelle, ce mythe existe-t-il ?
+          — Et comment cette tête si petite, et serrée comme une jeune pomme de pin, peut-elle
+          engendrer infailliblement ces myriades de questions et de réponses entre ses membres, et
+          ces tâtonnements étourdissants qu’elle produit et reproduit, les répudiant incessamment,
+          les recevant de la musique et les rendant tout aussitôt à la lumière ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Et moi, de mon côté, je songe à la puissance de l’insecte, dont l’innombrable vibration
+          de ses ailes soutient indéfiniment la fanfare, le poids, et le courage !…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Celle-ci se débat dans le réseau de nos regards, comme une mouche capturée. Mais mon
+          esprit curieux court sur la toile après elle, et veut dévorer ce qu’elle accomplit !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Cher Socrate, tu ne peux donc jamais jouir que de toi-même ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Ô mes amis, qu’est-ce véritablement que la danse ?</p>
+        <pb n="114"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>N’est-ce pas ce que nous voyons ? — Que veux-tu de plus clair sur la danse, que la danse
+          elle-même ?</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Notre Socrate n’a de cesse qu’il n’ait saisi l’âme de toute chose : sinon même, l’âme de
+          l’âme !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Mais qu’est-ce donc que la danse, et que peuvent dire des pas ?</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Oh ! Jouissons encore un peu, naïvement, de ces beaux actes… À droite, à gauche ; en
+          avant, en arrière ; et vers le haut et vers le bas, elle semble offrir des présents, des
+          parfums, de l’encens, des baisers, et sa vie elle-même, à tous les points de la sphère, et
+          aux pôles de l’univers…</p>
+        <p>Elle trace des roses, des entrelacs, des étoiles de mouvement, et de magiques enceintes…
+          Elle bondit hors des cercles à peine fermés… Elle bondit et court après des fantômes !…
+          Elle cueille une fleur, qui n’est aussitôt qu’un sourire !… Oh ! comme elle proteste de
+          son inexistence par une légèreté inépuisable !… Elle s’égare au milieu des sons, elle se
+          reprend à un fil… C’est la flûte secourable qui l’a sauvée ! Ô mélodie !…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>On dirait maintenant que tout n’est que spectre autour d’elle… Elle les enfante en les
+          fuyant ; mais si, tout à coup, elle se retourne, il nous semble qu’elle apparaisse aux
+          immortels !…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>N’est-elle pas l’âme des fables, et l’échappée de toutes les portes de la vie ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Crois-tu qu’elle en sache quelque chose ? et qu’elle se flatte d’engendrer d’autres
+          prodiges que des coups de pied très élevés, des battements, et des entrechats péniblement
+          appris pendant son apprentissage ?</p>
+        <pb n="115"/>
+        <label type="speaker">SOCRATE</label>
+        <p>Il est vrai que l’on peut aussi considérer les choses sous ce jour incontestable… Un œil
+          froid la regarderait aisément comme une démente, cette femme bizarrement déracinée, et qui
+          s’arrache incessamment de sa propre forme, tandis que ses membres devenus fous semblent se
+          disputer la terre et les airs ; et que sa tête se renverse, traînant sur le sol une
+          chevelure déliée ; et que l’une de ses jambes est à la place de cette tête ; et que son
+          doigt trace je ne sais quels signes dans la poussière !… Après tout, pourquoi tout ceci ?
+          — Il suffit que l’âme se fixe et se refuse, pour ne plus concevoir que l’étrangeté et le
+          dégoût de cette agitation ridicule… Que si tu le veux, mon âme, tout ceci est
+          absurde !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Tu peux donc, suivant ton humeur, comprendre, ne pas comprendre ; trouver beau, trouver
+          ridicule, à ton gré ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Il faudrait bien qu’il en soit ainsi…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Veux-tu dire, cher Socrate, que ta raison considère la danse comme une étrangère, dont
+          elle méprise le langage, et dont les mœurs lui semblent inexplicables, sinon choquantes ;
+          sinon même, tout à fait obscènes ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>La raison, quelquefois, me semble être la faculté de notre âme de ne rien comprendre à
+          notre corps !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Mais moi, Socrate, la contemplation de la danseuse me fait concevoir bien des choses, et
+          bien des rapports de choses, qui, sur-le-champ, se font ma propre pensée, et pensent, en
+          quelque sorte, à la place de Phèdre. Je me trouve des clartés que je n’eusse jamais
+          obtenues de la présence toute seule de mon âme…</p>
+        <p>Tout à l’heure, par exemple, l’Athikté me paraissait représenter <pb n="116"/>l’amour.
+          — Quel amour ? — Non celui-ci, non celui-là ; et non quelque misérable aventure !
+          — Certes, elle ne faisait point le personnage d’une amante… Point de mime, point de
+          théâtre ! Non, non ! point de fiction ! Pourquoi feindre, mes amis, quand on dispose du
+          mouvement et de la mesure, qui sont ce qu’il y a de réel dans le réel ?… Elle était donc
+          l’être même de l’amour ! — Mais quel est-il ? — De quoi est-il fait ? — Comment le définir
+          et le peindre ? — Nous savons bien que l’âme de l’amour est la différence invincible des
+          amants, tandis que sa matière subtile est l’identité de leurs désirs. Il faut donc que la
+          danse enfante par la subtilité des traits, par la divinité des élans, par la délicatesse
+          des pointes stationnaires, cette créature universelle qui n’a point de corps ni de visage,
+          mais qui a des dons, et des jours, et des destinées, mais qui a une vie et une mort ; et
+          qui n’est même que vie et que mort, car le désir une fois né ne connaît pas le sommeil ni
+          aucune trêve.</p>
+        <p>C’est pourquoi la seule danseuse peut le rendre visible par ses beaux actes. Toute,
+          Socrate, toute, elle était l’amour !… Elle était jeux et pleurs, et feintes inutiles !
+          Charmes, chutes, offrandes ; et les surprises, et les oui, et les non, et les pas
+          tristement perdus… Elle célébrait tous les mystères de l’absence et de la présence ; elle
+          semblait quelquefois effleurer d’ineffables catastrophes !… Mais à présent, pour rendre
+          grâces à l’Aphrodite, regardez-la. N’est-elle pas soudain une véritable vague de la mer ?
+          — Tantôt plus lourde, tantôt plus légère que son corps, elle bondit, comme d’un roc
+          heurtée ; elle retombe mollement… C’est l’onde !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Phèdre, à tout prix, prétend qu’elle représente quelque chose !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Que penses-tu, Socrate ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Si elle représente quoi que ce soit ?</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Oui. Crois-tu qu’elle représente quelque chose ?</p>
+        <pb n="117"/>
+        <label type="speaker">SOCRATE</label>
+        <p>Nulle chose, cher Phèdre. Mais toute chose, Éryximaque. Aussi bien l’amour comme la mer,
+          et la vie elle-même, et les pensées… Ne sentez-vous pas qu’elle est l’acte pur des
+          métamorphoses ?</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Divin Socrate, tu sais quelle confiance simple et singulière j’ai placée, depuis que je
+          t’ai connu, dans tes lumières incomparables : je ne puis t’entendre sans te croire, ni te
+          croire sans jouir de moi-même qui te crois. Mais que la danse d’Athikté ne représente
+          rien, et ne soit pas, sur toute chose, une image des emportements et des grâces de
+          l’amour, je le trouve presque insupportable à ouïr…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Je n’ai rien dit de si cruel encore ! — Ô mes amis, je ne fais que vous demander ce que
+          c’est que la danse ; et l’un et l’autre paraissez respectivement le savoir ; mais le
+          savoir tout à fait séparément ! L’un me dit qu’elle est ce qu’elle est, et qu’elle se
+          réduit à ce que voient ici nos yeux ; et l’autre tient très ferme qu’elle représente
+          quelque chose, et donc qu’elle n’est point entièrement en elle-même, mais principalement
+          en nous. Quant à moi, mes amis, mon incertitude est intacte !… Mes pensées sont
+          nombreuses, — ce qui jamais n’est un bon signe !… Nombreuses, confuses, également pressées
+          autour de moi…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Tu te plains d’être riche !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>L’opulence rend immobile. Mais mon désir est mouvement, Éryximaque… J’aurais besoin
+          maintenant de cette puissance légère qui est le propre de l’abeille, comme elle est le
+          souverain bien de la danseuse… Il faudrait à mon esprit cette force et ce mouvement
+          concentré, qui suspendent l’insecte au-dessus de la multitude de fleurs ; qui le font le
+          vibrant arbitre de la diversité de leurs corolles ; qui le présentent comme il veut, à
+          celle-ci, à celle-là, à cette rose un peu plus écartée ; et qui lui permettent <pb n="118"
+          />qu’il l’effleure, qu’il la fuie, ou qu’il la pénètre… Ils l’éloignent soudain de celle
+          qu’il a fini d’aimer, comme aussitôt ils l’y ramènent, s’il se repent d’y avoir laissé
+          quelque suc dont le souvenir le suit, duquel la suavité l’obsède pendant le reste de son
+          vol… Ou bien me faudrait-il, ô Phèdre, le subtil déplacement de la danseuse, qui,
+          s’insinuant entre mes pensées, les irait éveiller délicatement chacune à son tour, les
+          faisant surgir de l’ombre de mon âme, et paraître à la lumière de vos esprits, dans
+          l’ordre le plus heureux des ordres possibles.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Parle, parle… Je vois l’abeille sur ta bouche, et la danseuse dans ton regard !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Parle, ô Maître dans l’art divin de se fier à la naissante idée !… Auteur toujours
+          heureux des conséquences merveilleuses d’un accident dialectique !… Parle ! Tire le fil
+          doré… Amène de tes absences profondes quelque vivante vérité !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Le hasard est avec toi… Il se change insensiblement en sagesse, à mesure que tu le
+          poursuis de la voix dans le labyrinthe de ton âme !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Eh bien je prétends, avant toute chose, consulter notre médecin !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Ce que tu voudras, cher Socrate.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Dis-moi donc, fils d’Acumène, ô Thérapeute Éryximaque, toi pour qui les drogues très
+          amères et les aromates ténébreux ont si peu de vertus cachées que tu n’en fais aucun
+          usage ; toi donc, qui possédant aussi bien qu’homme du monde, tous les secrets de l’art et
+          ceux de la nature, toutefois ne prescris, ni ne préconises, baumes, ni bols, ni les
+          mastics mystérieux ; toi, davantage, qui ne te fies aux élixirs, qui ne crois guère aux
+          philtres confidentiels ; ô guérisseur sans électuaires, ô dédaigneux de tout <pb n="119"
+          />ce qui, — poudres, gouttes, gommes, grumeaux, flocons, ou gemmes ou cristaux, — happe à
+          la langue, perce les voûtes olfactives, touche aux ressorts de l’éternuement ou de la
+          nausée, tue ou vivifie ; dis-moi donc, cher ami Éryximaque, et des iâtres le plus versé
+          dans la matière médicale, dis-moi cependant : connais-tu point, parmi tant de substances
+          actives et efficientes, et parmi ces préparations magistrales que ta science contemple
+          comme des armes vaines ou détestables, dans l’arsenal de la pharmacopée, — dis-moi donc,
+          connais-tu point quelque remède spécifique, ou quelque corps exactement antidote, pour ce
+          mal d’entre les maux, ce poison des poisons, ce venin opposé à toute la nature ?…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Quel venin ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>… Qui se nomme : l’ennui de vivre ! — J’entends, sache-le bien, non l’ennui passager ;
+          non l’ennui par fatigue, ou l’ennui dont on voit le germe, ou celui dont on sait les
+          bornes ; mais cet ennui parfait, ce pur ennui, cet ennui qui n’a point l’infortune ou
+          l’infirmité pour origine, et qui s’accommode de la plus heureuse à contempler de toutes
+          les conditions, — cet ennui enfin, qui n’a d’autre substance que la vie même, et d’autre
+          cause seconde que la clairvoyance du vivant. Cet ennui absolu n’est en soi que la vie
+          toute nue, quand elle se regarde clairement.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Il est bien vrai que si notre âme se purge de toute fausseté, et qu’elle se prive de
+          toute addition frauduleuse à ce qui est, notre existence est menacée sur-le-champ, par
+          cette considération froide, exacte, raisonnable, et modérée, de la vie humaine telle
+          qu’elle est.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>La vie noircit au contact de la vérité, comme fait le douteux champignon au contact de
+          l’air, quand on l’écrase.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Éryximaque, je t’interrogeais s’il y avait remède ?</p>
+        <pb n="120"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Pourquoi guérir un mal si rationnel ? Rien, sans doute, rien de plus morbide en soi, rien
+          de plus ennemi de la nature, que de <hi rend="i">voir les choses comme elles sont</hi>.
+          Une froide et parfaite clarté est un poison qu’il est impossible de combattre. Le réel, à
+          l’état pur, arrête instantanément le cœur… Une goutte suffit, de cette lymphe glaciale,
+          pour détendre dans une âme, les ressorts et la palpitation du désir, exterminer toutes
+          espérances, ruiner tous les dieux qui étaient dans notre sang. Les Vertus et les plus
+          nobles couleurs en sont pâlies, et se dévorent peu à peu. Le passé, en un peu de cendres ;
+          l’avenir, en petit glaçon, se réduisent. L’âme s’apparaît à elle-même, comme une forme
+          vide et mesurable. — Voilà donc les choses telles qu’elles sont qui se rejoignent, qui se
+          limitent, et s’enchaînent de la sorte la plus rigoureuse et la plus mortelle… Ô Socrate,
+          l’univers ne peut souffrir, un seul instant, de n’être que ce qu’il est. Il est étrange de
+          penser que ce qui est le Tout ne puisse point se suffire !… Son effroi d’être ce qui est,
+          l’a donc fait se créer et se peindre mille masques ; il n’y a point d’autre raison de
+          l’existence des mortels. Pour quoi sont les mortels ? — Leur affaire est de <hi rend="i"
+            >connaître</hi>. Connaître ? Et qu’est-ce que connaître ? — C’est <hi rend="i"
+            >assurément n’être point ce que l’on est</hi>. — Voici donc les humains délirant et
+          pensant, introduisant dans la nature le principe des erreurs illimitées, et cette myriade
+          de merveilles !…</p>
+        <p>Les méprises, les apparences, les jeux de la dioptrique de l’esprit, approfondissent et
+          animent la misérable masse du monde… L’idée fait entrer dans ce qui est, le levain de ce
+          qui n’est pas… Mais enfin la vérité quelquefois se déclare, et détonne dans l’harmonieux
+          système des fantasmagories et des erreurs… Tout menace aussitôt de périr, et Socrate en
+          personne me vient demander un remède, pour ce cas désespéré de clairvoyance et
+          d’ennui !…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Eh bien, Éryximaque, puisqu’il n’est point de remède, peux-tu me dire, tout au moins,
+          quel état est le plus contraire à cet horrible état de pur dégoût, de lucidité meurtrière,
+          et d’inexorable netteté ?</p>
+        <pb n="121"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Je vois d’abord tous les délires non mélancoliques.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Et ensuite ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>L’ivresse, et la catégorie des illusions dues aux vapeurs capiteuses.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Oui. Mais n’y a-t-il point des ivresses qui n’aient point leur source dans le vin ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Certes. L’amour, la haine, l’avidité, enivrent !… Le sentiment de la puissance…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Tout ceci donne goût et couleur à la vie. Mais la chance de haïr, ou d’aimer, ou
+          d’acquérir de très grands biens, est liée à tous les hasards du réel… Tu ne vois donc pas,
+          Éryximaque, que parmi toutes les ivresses, la plus noble, et la plus ennemie du grand
+          ennui, est l’ivresse due à des actes ? Nos actes, et singulièrement ceux de nos actes qui
+          mettent notre corps en branle, peuvent nous faire entrer dans un état étrange et
+          admirable… C’est l’état le plus éloigné de ce triste état où nous avons laissé
+          l’observateur immobile et lucide que nous imaginâmes tout à l’heure.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Mais si, par quelque miracle, celui-ci se prenait de passion subite pour la danse ?… S’il
+          voulait cesser d’être clair pour devenir léger ; et si donc, s’essayant à différer
+          infiniment de lui-même, il tentait de changer sa liberté de jugement en liberté de
+          mouvement ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Alors il nous apprendrait d’un seul coup ce que nous cherchons à élucider maintenant…
+          Mais j’ai quelque chose encore qu’il faut que je demande à Éryximaque.</p>
+        <pb n="122"/>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Ce que tu voudras, cher Socrate.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Dis-moi donc, sage médecin, qui as approfondi dans tes périples et dans tes études, la
+          science de toutes choses vivantes ; grand connaisseur que tu es des formes et des caprices
+          naturels, toi qui t’es distingué dans le classement des bêtes et des plantes remarquables
+          (les nocives et les bénignes ; les anodines, les efficaces ; les surprenantes, les
+          affreuses, les ridicules ; les douteuses ; celles enfin qui n’existent pas), — dis-moi
+          donc, n’as-tu point ouï parler de ces étranges animaux qui vivent et prospèrent dans la
+          flamme elle-même ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Certes !… Leur figure et leurs mœurs, cher Socrate, ont été bien étudiées ; encore que
+          leur existence même ait récemment fait l’objet de quelques contestations. Je les ai
+          décrits bien souvent à mes disciples ; toutefois je n’ai jamais eu l’occasion d’en
+          observer de mes yeux.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Eh bien, ne te semble-t-il pas, Éryximaque, et à toi, mon cher Phèdre, que cette créature
+          qui vibre là-bas, et qui s’agite adorablement dans nos regards, cette ardente Athikté qui
+          se divise et se rassemble, qui s’élève et qui s’abaisse, qui s’ouvre et se referme si
+          promptement, et qui paraît appartenir à d’autres constellations que les nôtres, — a l’air
+          de vivre, tout à fait à l’aise, dans un élément comparable au feu, — dans une essence très
+          subtile de musique et de mouvement, où elle respire une énergie inépuisable, cependant
+          qu’elle participe de tout son être, à la pure et immédiate violence de l’extrême
+          félicité ? — Que si nous comparons notre condition pesante et sérieuse, à cet état
+          d’étincelante salamandre, ne vous semble-t-il pas que nos actes ordinaires, engendrés
+          successivement par nos besoins, et que nos gestes et nos mouvements accidentels soient
+          comme des matériaux grossiers, comme une impure matière de durée, — tandis que cette
+          exaltation et cette vibration de la vie, tandis que cette suprématie de la tension, et ce
+          ravissement dans le plus agile que l’on puisse obtenir de soi-même, ont les vertus et les
+          puissances de la flamme ; et que les hontes, les ennuis, les niaiseries, et les aliments
+          monotones de l’existence s’y consument, faisant briller à nos yeux ce qu’il y a de divin
+          dans une mortelle ?</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Admirable Socrate, regarde vite à quel point tu dis vrai !… Regarde la palpitante ! On
+          croirait que la danse lui sort du corps comme une flamme !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Ô Flamme !…</p>
+        <p>— Cette fille est peut-être une sotte ?…</p>
+        <p>Ô Flamme !…</p>
+        <p>— Et qui sait quelles superstitions et quelles sornettes forment son âme ordinaire ?</p>
+        <p>Ô Flamme, toutefois !… Chose vive et divine !…</p>
+        <p>Mais qu’est-ce qu’une flamme, ô mes amis, si ce n’est <hi rend="i">le moment</hi> même ?
+          — Ce qu’il y a de fol, et de joyeux, et de formidable dans l’instant même ?… Flamme est
+          l’acte de ce moment qui est entre la terre et le ciel. Ô mes amis, tout ce qui passe de
+          l’état lourd à l’état subtil, passe par le moment de feu et de lumière…</p>
+        <p>Et flamme, n’est-ce point aussi la forme insaisissable et fière de la plus noble
+          destruction ? — Ce qui n’arrivera jamais plus, arrive magnifiquement devant nos yeux !
+          — Ce qui n’arrivera jamais plus, doit arriver le plus magnifiquement qu’il se puisse !
+          — Comme la voix chante éperdument, comme la flamme follement chante entre la matière et
+          l’éther, — et de la matière à l’éther, furieusement gronde et se précipite, — la grande
+          Danse, ô mes amis, n’est-elle point cette délivrance de notre corps tout entier possédé de
+          l’esprit du mensonge, et de la musique qui est mensonge, et ivre de la négation de la
+          nulle réalité ? — Voyez-moi ce corps, qui bondit comme la flamme remplace la flamme, voyez
+          comme il foule et piétine ce qui est vrai ! Comme il détruit furieusement, joyeusement,
+            <pb n="124"/>le lieu même où il se trouve, et comme il s’enivre de l’excès de ses
+          changements !</p>
+        <p>Mais comme il lutte contre l’esprit ! Ne voyez-vous pas qu’il veut lutter de vitesse et
+          de variété avec son âme ? — Il est étrangement jaloux de cette liberté et de cette
+          ubiquité qu’il croit que possède l’esprit !…</p>
+        <p>Sans doute, l’objet unique et perpétuel de l’âme est bien ce qui n’existe pas : ce qui
+          fut, et qui n’est plus ; — ce qui sera et qui n’est pas encore ; — ce qui est possible, ce
+          qui est impossible, — voilà bien l’affaire de l’âme, mais non jamais, <hi rend="i"
+            >jamais</hi>, ce qui est !</p>
+        <p>Et le corps qui est ce qui est, le voici qu’il ne peut plus se contenir dans l’étendue !
+          — Où se mettre ? — Où devenir ? — Cet <hi rend="i">Un</hi> veut jouer à <hi rend="i"
+            >Tout</hi>. Il veut jouer à l’universalité de l’âme ! Il veut remédier à son identité
+          par le nombre de ses actes ! Étant chose, il éclate en événements ! — Il s’emporte ! — Et
+          comme la pensée excitée touche à toute substance, vibre entre les temps et les instants,
+          franchit toutes différences ; et comme dans notre esprit se forment symétriquement les
+          hypothèses, et comme les possibles s’ordonnent et sont énumérés, — ce corps s’exerce dans
+          toutes ses parties, et se combine à lui-même, et se donne forme après forme, et il sort
+          incessamment de soi !… Le voici enfin dans cet état comparable à la flamme, au milieu des
+          échanges les plus actifs… On ne peut plus parler de « mouvement »… On ne distingue plus
+          ses actes d’avec ses membres…</p>
+        <p>Cette femme qui était là est dévorée de figures innombrables… Ce corps, dans ses éclats
+          de vigueur, me propose une extrême pensée : de même que nous demandons à notre âme bien
+          des choses pour lesquelles elle n’est pas faite, et que nous en exigeons qu’elle nous
+          éclaire, qu’elle prophétise, qu’elle devine l’avenir, l’adjurant même de découvrir le
+          Dieu, — ainsi le corps qui est là, veut atteindre à une possession entière de soi-même, et
+          à un point de gloire surnaturel… Mais il en est de lui comme de l’âme, pour laquelle le
+          Dieu, et la sagesse, et la profondeur qui lui sont demandés, ne sont et ne peuvent être
+          que des moments, des éclairs, des fragments d’un temps étranger, des bonds désespérés hors
+          de sa forme…</p>
+        <pb n="125"/>
+        <label type="speaker">PHÈDRE</label>
+        <p>Regarde, mais regarde !… Elle danse là-bas et donne aux yeux ce qu’ici tu essayes de nous
+          dire… Elle fait voir l’instant… Ô quels joyaux elle traverse !… Elle jette ses gestes
+          comme des scintillations !… Elle dérobe à la nature des attitudes impossibles, sous l’œil
+          même du Temps !… Il se laisse tromper… Elle traverse impunément l’absurde… Elle est divine
+          dans l’instable, elle en fait don à nos regards !…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>L’instant engendre la forme, et la forme fait voir l’instant.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elle fuit son ombre dans les airs !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Nous ne la voyons jamais que devant tomber…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Elle a fait tout son corps aussi délié, aussi bien lié qu’une main agile… Ma main seule
+          peut imiter cette possession et cette facilité de tout son corps…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Ô mes amis, ne vous sentez-vous pas enivrés par saccades, et comme par des coups répétés
+          de plus en plus fort, peu à peu rendus semblables à tous ces convives qui trépignent, et
+          qui ne peuvent plus tenir silencieux et cachés leurs démons ? Moi-même, je me sens envahi
+          de forces extraordinaires… Ou je sens qu’elles sortent de moi qui ne savais pas que je
+          contenais ces vertus. Dans un monde sonore, résonnant et rebondissant, cette fête intense
+          du corps devant nos âmes offre lumière et joie… Tout est plus solennel, tout est plus
+          léger, tout est plus vif, plus fort ; tout est possible d’une autre manière ; tout peut
+          recommencer indéfiniment… Rien ne résiste à l’alternance des fortes et des faibles…
+          Battez, battez !… La matière frappée et battue, et heurtée, en cadence ; la terre bien
+          frappée ; les peaux et les cordes bien tendues, bien frappées ; les paumes des mains, <pb
+            n="126"/>les talons, bien frappant et battant le temps, forgeant joie et folie ; et
+          toutes choses en délire bien rythmé, règnent.</p>
+        <p>Mais la joie croissante et rebondissante tend à déborder toute mesure, ébranle à coups de
+          bélier les murs qui sont entre les êtres. Hommes et femmes en cadence mènent le chant
+          jusqu’au tumulte. Tout le monde frappe et chante à la fois, et quelque chose grandit et
+          s’élève… J’entends le fracas de toutes les armes étincelantes de la vie !… Les cymbales
+          écrasent à nos oreilles toute voix des secrètes pensées. Elles sont bruyantes comme des
+          baisers de lèvres d’airain…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>L’Athikté cependant présente une dernière figure. Tout son corps sur ce gros doigt
+          puissant se déplace.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Son orteil qui la supporte tout entière frotte sur le sol comme le pouce sur le tambour.
+          Quelle attention est dans ce doigt ; quelle volonté la roidit, et la maintient sur cette
+          pointe !… Mais voici qu’elle tourne sur elle-même…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle tourne sur elle-même, — voici que les choses éternellement liées commencent de se
+          séparer. Elle tourne, elle tourne…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>C’est véritablement pénétrer dans un autre monde…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>C’est la suprême tentative… Elle tourne, et tout ce qui est visible, se détache de son
+          âme ; toute la vase de son âme se sépare enfin du plus pur ; les hommes et les choses vont
+          former autour d’elle une lie informe et circulaire…</p>
+        <p>Voyez-vous… Elle tourne… Un corps, par sa simple force, et par son acte, est assez
+          puissant pour altérer plus profondément la nature des choses que jamais l’esprit dans ses
+          spéculations et dans ses songes n’y parvint !</p>
+        <pb n="127"/>
+        <label type="speaker">PHÈDRE</label>
+        <p>On croirait que ceci peut durer éternellement.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle pourrait mourir, ainsi…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Dormir, peut-être, s’endormir d’un sommeil magique…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle reposerait immobile au centre même de son mouvement. Isolée, isolée, pareille à
+          l’axe du monde…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elle tourne, elle tourne… Elle tombe !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle est tombée !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Elle est morte…</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle a épuisé ses secondes forces, et le trésor le plus caché dans sa structure !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Dieux ! Elle peut mourir… Éryximaque, va !…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Je n’ai point coutume de me hâter dans ces circonstances ! Si les choses doivent
+          s’arranger, il sied que le médecin ne les trouble point, et qu’il arrive un très petit
+          moment avant la guérison, du même pas que les Dieux.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Il faut cependant aller voir.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Comme elle est blanche !</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Laissons agir le repos qui va la guérir de son mouvement.</p>
+        <pb n="128"/>
+        <label type="speaker">PHÈDRE</label>
+        <p>Tu crois qu’elle n’est pas morte ?</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Regarde ce très petit sein qui ne demande qu’à vivre. Vois comme faiblement il palpite,
+          suspendu au temps…</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Je ne le vois que trop.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>L’oiseau bat un peu de l’aile, avant qu’il reprenne son vol.</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle semble assez heureuse.</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Qu’a-t-elle dit ?</p>
+        <label type="speaker">SOCRATE</label>
+        <p>Elle a dit quelque chose pour soi seule.</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Elle a dit : Que je suis bien !</p>
+        <label type="speaker">PHÈDRE</label>
+        <p>Ce petit tas de membres et d’écharpes s’agite…</p>
+        <label type="speaker">ÉRYXIMAQUE</label>
+        <p>Allons, petite enfant, rouvrons les yeux. Comment te sens-tu maintenant ?</p>
+        <label type="speaker">ATHIKTÉ</label>
+        <p>Je ne sens rien. Je ne suis pas morte. Et pourtant, je ne suis pas vivante !</p>
+        <label type="speaker">SOCRATE</label>
+        <p>D’où reviens-tu ?</p>
+        <label type="speaker">ATHIKTÉ</label>
+        <p>Asile, asile, ô mon asile, ô Tourbillon ! — J’étais en toi, ô mouvement, en dehors de
+          toutes les choses…</p>
+        <signed><hi rend="sc">Paul Valéry</hi>.</signed>
+      </div>
+    </body>
+  </text>
+</TEI>
