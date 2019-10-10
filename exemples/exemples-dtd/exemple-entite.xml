@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Pour visualiser l'entité, ouvrir ce document
+    avec un navigateur internet
+-->
+<!DOCTYPE cursus [
+
+    <!ENTITY intitule "Document Structuré">
+
+    <!ELEMENT cursus (cours)>
+    <!ELEMENT cours (#PCDATA)>
+
+]>
+
+<cursus>
+    <cours>&intitule;</cours>
+</cursus>
