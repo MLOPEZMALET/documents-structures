@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <bibliotheque>
-    
     <etagere type="sf">
         <livre isbn="001" prix="15.99">
             <titre>Le problème à trois corps</titre>
@@ -15,16 +14,14 @@
             </auteur>
         </livre>
     </etagere>
-
     <etagere type="gothique" poussiere="true">
         <livre isbn="003" prix="5.58">
             <titre>Le Château d'Otrante</titre>
             <auteur>
+                <prenom>Horace</prenom>
                 <nom>Walpole</nom>
             </auteur>
         </livre>
     </etagere>
-
     <etagere type="romance" poussiere="false"/>
-
 </bibliotheque>
