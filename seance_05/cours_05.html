@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documents Structurés</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Cours 05
+## Schémas XML
+### 23/10/2019
+
+---
+# Schémas XML
+
+Un schéma XML permet d'appliquer des **contraintes** sur un document XML
+
+Les contraintes s'expriment sur la **structure** et le **contenu** du document
+
+Notre premier schéma : la DTD, néanmoins celle-ci est limitée
+
+- Pas de typage des données (int, bool, date, etc.)
+- Ne supporte pas les expressions régulières
+- & et les espaces de noms
+- Difficile de représenter un document complexe
+
+---
+# Schémas XML
+
+Deux schémas sont couramment utilisés
+
+- W3C XML Schema
+- RelaxNG (à prononcer _Relax-ing_)
+
+À la différence de la DTD, ilsadoptent une syntaxe XML (RelaxNg a deux syntaxes).
+
+⚠️  Ne pas confondre "XML **S**chema" et "XML **s**chema" en anglais. Le premier s'écrit avec une majuscule pour désigner un schéma spécifique, alors que le second est la dénomination commune des schémas XML.
+
+Nous verrons dans ce cours **RelaxNG** et **Schematron** car 
+- la syntaxe est plus facile d'apprentissage & moins rebutante 
+- la validation par Schematron repose sur Xpath & le langage naturel
+
+Pour une comparaison plus détaillée des schémas voir la page [Wikipédia](https://en.wikipedia.org/wiki/XML_schema#W3C_XML_Schema)
+
+---
+# RelaxNG
+
+**RE**gular **LA**nguage for **X**ML **N**ext **G**eneration
+
+Fusion du schéma RELAX de Murata Makoto et TREX de James Clark
+
+Les [spécifications](https://relaxng.org/#specs) ont été établi dans les années 2001-2002 par un comité [OASIS](https://en.wikipedia.org/wiki/OASIS_(organization)) dédié à RelaxNG
+
+À la différence de XML Schema, RelaxNG n'est pas une recommandation du W3C
+
+Le site de [RelaxNG](https://relaxng.org/), on y trouve
+- les spécifications
+- des tutoriels
+- des outils
+
+---
+# RelaxNG
+
+Il existe deux formes pour la représentation
+
+- une forme "compacte", plus proche de la DTD
+- une forme XML, plus proche de XML Schema
+
+L'extension se fait généralement, en `.rng` pour la forme XML et en `.rnc` pour la forme compacte.
+
+L'espace de nom est : `xmlns="http://relaxng.org/ns/structure/1.0"`
+
+Bien que XML Schema est défini par le W3C et donc plus largement répandu, RelaxNG est adopté par différents standards comme [DocBook](https://docbook.org/), [TEI](https://tei-c.org/), [OpenDocument](http://opendocumentformat.org/) et [Epub](https://www.w3.org/publishing/groups/epub3-cg/)
+
+---
+# RelaxNG - aperçu
+
+À partir de l'exemple sur la page wikipédia [RelaxNG](https://en.wikipedia.org/wiki/RELAX_NG#Schema_examples)
+``` xml
+<book>
+  <page>This is page one.</page>
+  <page>This is page two.</page>
+</book>
+```
+
+``` rng
+# Forme compacte sans patrons nommées (named patterns)
+element book {
+    element page { text }+
+}
+```
+``` rng
+# Forme compacte avec patrons nommées
+start = element book { page+ }
+page = element page { text }
+```
+
+---
+# RelaxNG - aperçu
+
+``` xml
+# Forme XML sans patrons nommés (named patterns)
+<element name="book"
+         xmlns="http://relaxng.org/ns/structure/1.0">
+    <oneOrMore>
+        <element name="page">
+            <text/>
+        </element>
+    </oneOrMore>
+</element>
+
+```
+
+``` xml
+# Forme XML avec patrons nommés
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+   <start>
+      <element name="book">
+         <oneOrMore>
+            <ref name="page"/>
+         </oneOrMore>
+      </element>
+   </start>
+   <define name="page">
+      <element name="page">
+         <text/>
+      </element>
+   </define>
+</grammar>
+```
+
+---
+# RelaxNG - outils
+
+- [`Oxygen XML Editor`](https://www.oxygenxml.com/) : validation + édition (en texte ou bien graphique)
+
+- [`jing-trang`](https://github.com/relaxng/jing-trang) : validation en ligne de commande & conversion de schémas
+```bash
+# Installation et création de trois fichiers .jar dans le dossier build/
+git clone https://github.com/relaxng/jing-trang
+cd jing-trang
+./ant
+```
+``` bash
+# Pour valider (-c pour la forme compacte)
+# Si rien ne s'affiche, alors le document est valide
+java -jar jing.jar book.rng book.xml
+java -jar jing.jar -c book.rnc book.xml
+```
+```bash
+# Pour convertir
+# java -jar trang.jar -I [rng|rnc|dtd|xml] -O [rng|rnc|dtd|xsd] [input file name] [output file name]
+java -jar trang.jar -I dtd -O rng book.dtd book-trang.rng
+```
+
+---
+# RelaxNG - éléments et attributs
+
+Appel du schéma avec
+```xml
+<?xml-model href="mon-schema.rng" type="application/xml"
+            schematypens="http://relaxng.org/ns/structure/1.0"?>
+```
+
+La déclaration d'un élément XML se fait à l'aide de la balise `<element name="nom-element">`
+à laquelle est associée un attribut `@name`
+``` xml
+<!-- <book></book> -->
+<element name="book">
+    ...
+</element>
+```
+
+Un attribut se déclare de la même manière, sauf que la balise se nomme `<attribut name="nom-attribut">`
+``` xml
+<!-- <book isbn=""></book> -->
+<element name="book">
+    <attribut name="isbn"/>
+</element>
+```
+
+---
+# RelaxNG - cardinalité
+
+Par défaut, l'élément et l'attribut sont **obligatoires**
+
+On peut les rendre optionnels avec la balise `optional`
+```xml
+<!-- L'élément "titre" est optionnel -->
+<element name="page">
+    <optional>
+        <element name="titre"></element>
+    </optional>
+</element>
+```
+
+Pour indiquer qu'un élément est présent
+- 0 à _n_ : (\*) `<zeroOrMore>...</zeroOrMore>`
+- 1 à _n_ : (+) `<oneOrMore>...</oneOrMore>`
+
+``` xml
+<zeroOrMore>
+    <element name='footnote'></element>
+</zeroOrMore>
+
+<oneOrMore>
+    <element name='paragraphe'></element>
+</oneOrMore>
+```
+
+---
+# RelaxNG - contenu
+
+Un attribut contient du texte par défaut, sinon on peut le préciser explicitement avec `<text/>`
+``` xml
+<attribut name="isbn"/>
+<attribut name="isbn"><text/></attribut>
+```
+
+Un `element` peut contenir
+- des attributs et/ou éléments
+- du texte (`<text/>`)
+- rien, explicitement vide avec `<empty/>`
+
+On verra plus tard que l'on peut modifier le type des éléments et attributs.
+Nous ne sommes pas limités à la balise `<text/>`
+
+---
+# RelaxNG - exemple
+
+```xml
+<?xml-model href="livres.rng" type="application/xml" 
+            schematypens="http://relaxng.org/ns/structure/1.0"?>
+<livres>
+    <livre isbn="">
+        <auteur nom="" prenom=""></auteur>
+        <auteur nom="" prenom="" pays=""></auteur>
+    </livre>
+</livres>
+```
+
+``` xml
+<element name="livres" xmlns="http://relaxng.org/ns/structure/1.0">
+    <element name="livre">
+        <attribute name="isbn"/>
+        <oneOrMore>
+            <element name="auteur">
+                <attribute name="prenom"/>
+                <attribute name="nom"/>
+                <optional>
+                    <attribute name="pays"/>
+                </optional>
+                <text/>
+            </element>
+        </oneOrMore>
+    </element>
+</element>
+```
+
+---
+# RelaxNG - les choix
+
+Pour exprimer le choix d'un `element` ou bien un `attribute`, on emploie `choice`
+
+```xml
+<auteur>
+    <nom/>
+</auteur>
+<!-- ou bien -->
+<auteur>
+    <prenom/>
+</auteur>
+```
+
+```xml
+<element name="auteur">
+    <choice>
+        <element name="nom"><empty/></element>
+        <element name="prenom"><empty/></element>
+    <choice>
+</element>
+```
+Dans cet exemple, nous pouvons spécifier soit un `nom`, soit un `prenom`
+
+---
+# RelaxNG - les groupes
+
+Utile pour lier des groupes d'éléments ou attributs entre eux.
+
+Reprenons l'exemple précédant pour indiquer qu'un auteur à soit un `nom`, soit un `nom` et un `prenom`
+
+```xml
+<auteur>
+    <nom/>
+</auteur>
+<!-- ou bien -->
+<auteur>
+    <nom/>
+    <prenom/>
+</auteur>
+```
+
+```xml
+<element name="auteur">
+    <choice>
+        <element name="nom"><empty/></element>
+        <group>
+            <element name="nom"><empty/></element>
+            <element name="prenom"><empty/></element>
+        </group>
+    <choice>
+</element>
+```
+
+---
+# RelaxNG - séquence
+
+Par défaut, deux éléments en séquence doivent se suivre dans le XML
+
+```xml
+<element name="nom"></element>
+<element name="prenom"></element>
+
+<!-- xml -->
+<nom/>
+<prenom/>
+
+<!-- INCORRECT -->
+<prenom/>
+<nom/>
+```
+
+---
+# RelaxNG - séquence, suite
+
+Pour outrepasser cet ordre, on utilise la balise `<interleave>`
+```xml
+<interleave>
+    <element name="nom"></element>
+    <element name="prenom"></element>
+</interleave>
+
+<!-- xml -->
+<nom/>
+<prenom/>
+
+<!-- valide également -->
+<prenom/>
+<nom/>
+```
+
+Cette instruction peut se coupler avec `group` pour rendre l'ordre non déterminé 
+
+---
+# RelaxNG - les types
+
+RelaxNG nous permet de typer les données, c'est à dire que l'on peut représenter autre chose que du `<text/>`
+
+Pour cela, il faut inclure dans l'élément racine (héritage) ou bien sur celui que nous voulons typer, l'instruction :
+
+``` xml
+datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+```
+
+Parmi les types proposés, nous avons
+- token
+- string
+- int
+- bool
+- _etc._
+La liste complète des types est disponible [ici](http://books.xmlschemata.org/relaxng/relax-CHP-8-SECT-1.html)
+
+```xml
+<attribute name="nom">
+    <data type="token"/> <!-- l'attribut 'nom' aura un type 'token' -->
+</attribute>
+```
+
+---
+# RelaxNG - les types, suite
+
+Il est possible de contraindre des paramètres sur les types de données, en XML Schema, on appelle cela les `Facets`
+
+La même chose est également possible avec RelaxNG, grâce à la balise `<param>`
+
+Pour voir l'ensemble des [paramètres disponibles](http://books.xmlschemata.org/relaxng/relax-CHP-8-SECT-1.html#relax-CHP-8-SECT-1.2)
+
+```xml
+<!-- contraindre une chaîne de 127 caractères maximum -->
+<data type="string">
+    <param name="maxLength">127</param>
+</data>
+```
+
+---
+# RelaxNG - exercice
+
+Modéliser le schéma RelaxNG du document suivant `exercice-livres.xml`
+```xml
+<bibliotheque>
+    <etagere type="sf">
+        <livre isbn="001" prix="15.99">
+            <titre>Le problème à trois corps</titre>
+            <auteur nom="Liu" prenom="Cixin"/>
+        </livre>
+        <livre isbn="002" prix="10.00">
+            <titre>La ménagerie de papier</titre>
+            <auteur>
+                <nom>Liu</nom>
+                <prenom>Ken</prenom>
+            </auteur>
+        </livre>
+    </etagere>
+    <etagere type="gothique" poussiere="true">
+        <livre isbn="003" prix="5.58">
+            <titre>Le Château d'Otrante</titre>
+            <auteur nom="Walpole">    <nom>Walpole</nom>    </auteur>
+        </livre>
+    </etagere>
+    <etagere type="romance" poussiere="false"/>
+</bibliotheque>
+```
+
+Correction disponible dans le fichier `exercice-livres.rng`
+
+---
+# RelaxNG - devoir maison
+
+Reprendre le XML des tournages
+1. écrire le schéma RelaxNG au format XML
+2. puis sous la forme compacte
+3. déposer sur votre `github` dans le dossier `devoirs`
+
+Vérifier en utilisant la validité de votre schéma avec `Oxygen XML Editor` ou bien `jing`
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
+

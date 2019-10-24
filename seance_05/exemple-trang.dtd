@@ -1,0 +1,4 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT book (page)+>
+<!ELEMENT page (#PCDATA)>
