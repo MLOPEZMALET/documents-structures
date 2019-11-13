@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="Arrondissements">
+            <oneOrMore>
+                <element name="Arrondissement">
+                    <text/>
+                    <element name="Tournage">
+                        <attribute name="type">
+                            <text/>
+                        </attribute>
+                        <element name="Titre">
+                            <text/>
+                        </element>
+                        <element name="Realisateur">
+                            <text/>
+                        </element>
+                        <element name="Organisme_demandeur">
+                            <text/>
+                        </element>
+                        <element name="Adresse">
+                            <interleave>
+                                <text/>
+                                <optional>
+                                    <attribute name="coordonnees"/>
+                                </optional>
+                                <attribute name="date_debut"/>
+                                <attribute name="date_fin"/>
+                            </interleave>
+                        </element>
+                    </element>
+                </element>
+            </oneOrMore>
+        </element>
+    </start>
+</grammar>
