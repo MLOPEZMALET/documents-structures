@@ -1,0 +1,19 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+element Arrondissements {
+    element Arrondissement {
+        text,
+        element Tournage {
+            attribute type {text},
+            element Titre {text},
+            element Realisateur {text},
+            element Organisme_demandeur {text},
+            element Adresse {
+                text,
+                attribute coordonnees {text},
+                attribute date_debut {text},
+                attribute date_fin {text}
+                }
+            }
+    }*              
+}

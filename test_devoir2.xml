@@ -2,7 +2,7 @@
 
 <!DOCTYPE Arrondissements [
 
-<!ELEMENT Arrondissements (Arrondissement+) >
+<!ELEMENT Arrondissements (Arrondissement+)>
 <!ELEMENT Arrondissement (Tournage)>
 <!ELEMENT Tournage (Titre, Realisateur, Organisme_demandeur, Adresse)>
 <!ATTLIST Tournage type (SERIE_TELEVISEE|LONG_METRAGE|TELEFILM) #REQUIRED>
